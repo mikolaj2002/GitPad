@@ -1,3 +1,15 @@
 body{
-    background-color: green;
+    background-color: #132613;
 }
+.container{
+    color: black;
+}
+.navbar{
+    background-color: #4E6F2B;
+}
+
+footer{
+    color: black;
+    background-color: #4E6F2B;
+}
+
