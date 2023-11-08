@@ -39,3 +39,10 @@ exports.getAccountPage = (req, res) =>{
     };
     res.render('account', viewsData);
 };
+
+exports.getContactPage = (req, res) =>{
+    const viewsData = {
+        pageTitle: 'GitPad - Kontakt',
+    };
+    res.render('contact', viewsData);
+};
