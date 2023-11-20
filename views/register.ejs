@@ -1,0 +1,21 @@
+<%- include('includes/head.ejs') %>
+</head>
+<body class="d-flex flex-column min-vh-100">
+<%- include('includes/navigation.ejs') %>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center my-5">Rejestracja</h1>
+                <form>
+                    <input type="text" name="login" class="form-control">
+                    <input type="password" name="password" class="form-control">
+                    <input type="password" name="password-repeat" class="form-control">
+                    <input type="submit" value="Zaloguj się" class="btn btn-success">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</main>
+<%- include('includes/footer.ejs') %>
