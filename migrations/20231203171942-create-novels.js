@@ -32,7 +32,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       text: {
-        type: Sequelize.TEXT('long')
+        type: Sequelize.TEXT
+      },
+      editable: {
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,

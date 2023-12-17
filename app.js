@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const rootDir = require('./utils/path');
 const homeRoutes = require('./routes/home');
+const dbRoutes = require('./routes/database');
 
 const app = express();
 const port = 3001;
@@ -20,6 +21,7 @@ app.use(express.json());
 
 // routes
 app.use(homeRoutes.router);
+app.use(dbRoutes.router);
 
 app.use((req,res,next)=>{
     const viewsData = {

@@ -22,7 +22,8 @@ module.exports = (sequelize, DataTypes) => {
     novelId: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
     title: DataTypes.STRING,
-    text: DataTypes.TEXT('long')
+    text: DataTypes.TEXT,
+    editable: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'Novels',

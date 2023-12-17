@@ -25,14 +25,11 @@ module.exports = {
         type: Sequelize.INTEGER,
         foreignKey: true
       },
-      edit_start: {
-        type: Sequelize.INTEGER
-      },
-      edit_end: {
-        type: Sequelize.INTEGER
+      title: {
+        type: Sequelize.STRING
       },
       text: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,

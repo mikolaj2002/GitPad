@@ -1,4 +1,5 @@
 const { faker } = require('@faker-js/faker');
+const { createNovel } = require('../controllers/databaseControllers/novelController');
 module.exports = {
   up: async (queryInterface, Sequelize) => {
         let nOfUsers = 5;
@@ -12,15 +13,22 @@ module.exports = {
       }
     await queryInterface.bulkInsert('Users', users);
 
-    let novels = []
+    await queryInterface.bulkInsert('Novels', [{
+      novelId: 0,
+      userId: 1,
+      title: "",
+      text: "",
+      editable:true
+  }]);
+    
     let novelStats = []
-      for(let i=0; i<10;i++){
-        novels.push({
-            novelId: faker.number.int(i),
-            userId: faker.number.int(nOfUsers-1)+1,
-            title: faker.lorem.word(),
-            text: faker.lorem.paragraphs(1)
-        })
+      for(let i=1; i<10;i++){
+        await createNovel(
+            faker.number.int(i-1)+1,
+            faker.number.int(nOfUsers-1)+1,
+            faker.lorem.word(),
+            faker.lorem.paragraphs(1)
+        )
 
         novelStats.push({
             novelId: i+1,
@@ -28,7 +36,7 @@ module.exports = {
             likes: faker.number.int(10)
         })
       }
-    await queryInterface.bulkInsert('Novels', novels);
+  
     await queryInterface.bulkInsert('NovelStats', novelStats);
   },
 

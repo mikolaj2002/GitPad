@@ -23,3 +23,12 @@ exports.getUserById = async (id) => {
     // const id = req.params.id;
     return Users.findByPk(id);
 };
+
+exports.getUserStats = async (req, res) => {
+    try {
+        const user = await Users.findByPk(req.body.id);
+        res.json(user);
+    }catch(err){
+      res.status(500).json({ error: err.message });
+    }
+};

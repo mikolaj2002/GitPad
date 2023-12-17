@@ -15,11 +15,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   NovelEdits.init({
-    // novel_id: DataTypes.INTEGER,
+    novelId: DataTypes.INTEGER,
     chapter_id: DataTypes.INTEGER,
-    edit_start: DataTypes.INTEGER,
-    edit_end: DataTypes.INTEGER,
-    text: DataTypes.STRING
+    title: DataTypes.STRING,
+    text: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'NovelEdits',
