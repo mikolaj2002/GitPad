@@ -3,10 +3,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const rootDir = require('./utils/path');
 const homeRoutes = require('./routes/home');
+const authRoutes = require('./routes/authentication');
 
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+const { initializeApp } = require("firebase/app");
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,16 +22,14 @@ const firebaseConfig = {
     measurementId: "G-JR0K9N58BG"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
-//const app = express();
 const port = 3001;
 
+const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
+// initialize Firebase
+initializeApp(firebaseConfig);
 
 // static files
 app.use(express.static(path.join(rootDir, 'public')));
@@ -42,6 +40,7 @@ app.use(express.json());
 
 // routes
 app.use(homeRoutes.router);
+app.use(authRoutes.router);
 
 app.use((req, res, next) => {
     const viewsData = {

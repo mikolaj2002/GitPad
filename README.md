@@ -16,7 +16,7 @@ npm start
 ```
 Open localhost:3000 in browser.
 
-And additional 2 commands for authentication (maybe useless, not sure how that npm works xD)
+And additional 2 commands for authentication:
 ```
 npm install firebase
 npm install -g firebase-tools
