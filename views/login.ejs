@@ -1,0 +1,27 @@
+<%- include('includes/head.ejs') %>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <%- include('includes/navigation.ejs') %>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center my-5">Logowanie</h1>
+                    <form action="/login_email" method="POST">
+                        <input type="text" name="email" placeholder="Adres e-mail" class="form-control mb-2">
+                        <input type="password" name="password" placeholder="Hasło" class="form-control mb-2">
+                        <input type="submit" value="Zaloguj się" class="btn btn-success">
+                    </form>
+                    <p id="error" class="text-danger"></p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const errorMessage = urlParams.get('error');
+            document.getElementById("error").innerHTML = errorMessage;
+        </script>
+    </main>
+<%- include('includes/footer.ejs') %>
