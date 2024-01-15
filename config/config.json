@@ -1,0 +1,9 @@
+{
+  "development": {
+    "database": "gitpad",
+    "dialect": "mysql",
+    "storage": "../gitpad.mysql",
+    "username": "root",
+    "password": "root"
+  }
+}

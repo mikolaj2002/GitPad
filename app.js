@@ -3,15 +3,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const rootDir = require('./utils/path');
 const homeRoutes = require('./routes/home');
+const dbRoutes = require('./routes/database');
 const authRoutes = require('./routes/authentication');
-
-// Import the functions you need from the SDKs you need
 const { initializeApp } = require("firebase/app");
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
     apiKey: "AIzaSyAOycDldC_EUtx7KzgHlilMhRBi3TK1n4I",
     authDomain: "gitpad-38322.firebaseapp.com",
@@ -22,7 +17,7 @@ const firebaseConfig = {
     measurementId: "G-JR0K9N58BG"
 };
 
-const port = 3001;
+const port = 3000;
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -40,6 +35,7 @@ app.use(express.json());
 
 // routes
 app.use(homeRoutes.router);
+app.use(dbRoutes.router);
 app.use(authRoutes.router);
 
 app.use((req, res, next) => {
