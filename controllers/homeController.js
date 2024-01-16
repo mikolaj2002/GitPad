@@ -1,3 +1,5 @@
+const { getUserId } = require("./authenticationController");
+
 exports.getHomePage = (req, res) =>{
     const viewsData = {
         pageTitle: 'GitPad - Home',
@@ -6,10 +8,18 @@ exports.getHomePage = (req, res) =>{
 };
 
 exports.getAddPage = (req, res) =>{
+    const user = getUserId()
+    if(user == null){
+        const errorMessage = 'Musisz być zalogowany by stworzyć opowieść';
+        res.redirect('/account?error=' + errorMessage);
+        // this.getAccountPage(req,res)
+    }else{
+    console.log(user)
     const viewsData = {
         pageTitle: 'GitPad - Home',
     };
     res.render('add', viewsData);
+}
 };
 
 exports.getCategoryPage = (req, res) =>{

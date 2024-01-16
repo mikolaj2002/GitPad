@@ -7,11 +7,16 @@
         <div class="row">
             <div class="col-md-12">
                 <h1 class="text-center my-5">Konto</h1>
+                <h3 id="error" style="color: rgb(238, 81, 81);text-align: center;font-size:medium;"></h3>
                 <a class="nav-link" href="/login">Logowanie</a>
                 <a class="nav-link" href="/register">Rejestracja</a>
             </div>
         </div>
     </div>
-
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const errorMessage = urlParams.get('error');
+        document.getElementById("error").innerHTML = errorMessage;
+    </script>
 </main>
 <%- include('includes/footer.ejs') %>

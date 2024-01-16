@@ -7,8 +7,9 @@ const sequelize = new Sequelize(dbConfig);
 
 const Users = require('../../models/users')(sequelize, Sequelize);
 exports.sequelize = sequelize
-exports.createUser = async (nick, follows, red_flags) => {
+exports.createUser = async (uid, nick, follows, red_flags) => {
     Users.create({
+        uid:uid,
         nick: nick,
         follows: follows,
         red_flags: red_flags

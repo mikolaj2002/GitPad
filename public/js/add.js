@@ -34,6 +34,15 @@ const page = {
 var novelId;
 var chapters; // tablica
 
+document.getElementById('test').addEventListener('click', function () {
+    send('/getUserUID',{},(res)=>{
+        console.log(res)
+        // if(res.uid != null)
+        // alert(res.uid)
+        console.log(res.uid)
+        console.log("alerting")
+    })
+})
 document.getElementById('novelInput').addEventListener('input', function () {
 
     let text = this.value;
@@ -142,7 +151,8 @@ document.getElementById('publish').addEventListener('click', function () {
                 title:chapter.newTitle,
                 text: chapter.newText
             }
-        })
+        }),
+        public: document.getElementById('public').checked
     }
     send('/publishNovel',payload,(res)=>{
         
