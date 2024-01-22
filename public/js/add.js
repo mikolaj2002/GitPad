@@ -34,15 +34,15 @@ const page = {
 var novelId;
 var chapters; // tablica
 
-document.getElementById('test').addEventListener('click', function () {
-    send('/getUserUID',{},(res)=>{
-        console.log(res)
-        // if(res.uid != null)
-        // alert(res.uid)
-        console.log(res.uid)
-        console.log("alerting")
-    })
-})
+// document.getElementById('test').addEventListener('click', function () {
+//     send('/getUserUID',{},(res)=>{
+//         console.log(res)
+//         // if(res.uid != null)
+//         // alert(res.uid)
+//         console.log(res.uid)
+//         console.log("alerting")
+//     })
+// })
 document.getElementById('novelInput').addEventListener('input', function () {
 
     let text = this.value;
@@ -143,7 +143,7 @@ page.titleField.addEventListener('input', function () {
 
 document.getElementById('publish').addEventListener('click', function () {
     const payload = {
-        userId: document.getElementById("userField").value, // TUTAJ DODAĆ USER ID
+        userId: 3,
         parentId: novelId,
         chapters: chapters.map((chapter) => {
             return {
@@ -156,7 +156,7 @@ document.getElementById('publish').addEventListener('click', function () {
     }
     send('/publishNovel',payload,(res)=>{
         
-        console.log(res.error);   
+        // console.log(res.error);   
         if(res.error == true)
             alert(res.message);
         else{

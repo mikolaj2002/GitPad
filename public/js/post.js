@@ -14,7 +14,7 @@ export function send(postName, data, onResponse){
     xhr.open('POST',postName);
     xhr.setRequestHeader('Content-Type','application/json   ');
     xhr.onreadystatechange = () => { if(xhr.readyState == XMLHttpRequest.DONE){
-        console.log(JSON.parse(xhr.responseText));
+        // console.log(JSON.parse(xhr.responseText));
         onResponse(JSON.parse(xhr.responseText));
     }}
     xhr.send(payload);

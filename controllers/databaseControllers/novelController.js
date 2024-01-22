@@ -67,9 +67,13 @@ exports.getNovelById = async (req, res) =>{
 exports.getNovelsWithTitleContaining = async (req, res) =>{
   try {
     const user = await Users.findOne({attributes: ['id'],where:{uid:getUserId()}})
-    console.log("DEBUG")
-    console.log(getUserId())
-    console.log(user.id)
+    
+    // if(user = null)
+    // console.log("DEBUG")
+    // console.log(getUserId())
+
+    // console.log(user.id)
+  
   const info = await Novels.findAll({
     attributes: ['id', 'title'],
       where: {
@@ -94,7 +98,7 @@ exports.getNovelsWithTitleContaining = async (req, res) =>{
       },
       order: [['createdAt', 'DESC']]
     }); 
-    console.log(info)
+    // console.log(info)
     res.json(info);
   }catch(err){
     res.status(500).json({ error: err.message });
@@ -242,22 +246,12 @@ exports.getUserUID = async (req, res) => {
             { public: false,
             userId: 1}
           ]
-          // public:true
-          // $or: [
-          //   {
-          //       public: true
-          //   }, 
-          //   {
-          //       public:false,
-          //       userId: 10
-          //   }
-          // ]
         },
         order: [['createdAt', 'DESC']]
       }); 
-      console.log(info)
+      // console.log(info)
       const uid = getUserId()
-      console.log("AAAA")
+      // console.log("AAAA")
 
       res.json({uid:uid});
   }catch(err){
