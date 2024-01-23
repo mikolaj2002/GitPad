@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getNovelsWithTitleContaining, getNovelById, getChaptersOfNovel, getChapterContent, publishNovel, getNovelStats } = require('../controllers/databaseControllers/novelController');
+const { getNovelsWithTitleContaining, getNovelById, getChaptersOfNovel, getChapterContent, publishNovel, getNovelStats, getUserUID } = require('../controllers/databaseControllers/novelController');
 const { getUserStats } = require('../controllers/databaseControllers/userController');
 
 // poniżej zapytania o bazę danych do serwera
@@ -11,6 +11,7 @@ router.post('/getChapterContent',getChapterContent)
 router.post('/publishNovel',publishNovel)
 router.post('/userStats',getUserStats)
 router.post('/novelStats',getNovelStats)
+router.post('/getUserUID',getUserUID)
 
 
 module.exports = {

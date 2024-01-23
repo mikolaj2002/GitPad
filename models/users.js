@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Users.init({
+    uid: DataTypes.STRING,
     nick: DataTypes.STRING,
     follows: DataTypes.INTEGER,
     red_flags: DataTypes.INTEGER

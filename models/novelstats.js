@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.belongsTo(models.novels);
-      console.log("novelsAsoc");
+      // console.log("novelsAsoc");
     }
   }
   NovelStats.init({
