@@ -1,4 +1,5 @@
 const { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } = require("firebase/auth");
+const { createUser } = require("./databaseControllers/userController");
 
 exports.isUserAuthenticated = () => {
     const auth = getAuth();
@@ -43,6 +44,7 @@ exports.handleLogout = (req, res) => {
 }
 
 exports.handleRegisterForm = (req, res) => {
+    const nick = req.body.nick
     const email = req.body.email;
     const password = req.body.password;
     const passwordRepeat = req.body.passwordRepeat;
@@ -60,6 +62,9 @@ exports.handleRegisterForm = (req, res) => {
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
+            // Dodanie użytkownika do bazy danych
+            const uid = user.uid
+            createUser(uid,nick,0,0)
             res.redirect('/');
         })
         .catch((error) => {

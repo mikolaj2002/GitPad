@@ -5,14 +5,16 @@ const env = process.env.NODE_ENV || "development";
 const dbConfig = config[env];
 const sequelize = new Sequelize(dbConfig);
 const { Op } = require("sequelize");
+const { getUserId } = require("../authenticationController");
 
 
 const Novels = require('../../models/novels')(sequelize, Sequelize);
+const Users = require('../../models/users')(sequelize, Sequelize);
 const NovelEdits = require('../../models/noveledits')(sequelize, Sequelize);
 const NovelStats = require('../../models/novelstats')(sequelize, Sequelize);
 
 exports.sequelize = sequelize
-exports.createNovel = async (novelId, user_id, title, text) => {
+exports.createNovel = async (novelId, user_id, title, text,public) => {
     // sprawdzenie czy ktoś forkował
     const sameName = await Novels.count({where:{title:title}});
     if(sameName > 0)
@@ -44,7 +46,8 @@ exports.createNovel = async (novelId, user_id, title, text) => {
         userId: user_id,
         title: title,
         text: text,
-        editable:true
+        editable:true,
+        public:public
     })
 };
 
@@ -63,16 +66,39 @@ exports.getNovelById = async (req, res) =>{
 
 exports.getNovelsWithTitleContaining = async (req, res) =>{
   try {
+    const user = await Users.findOne({attributes: ['id'],where:{uid:getUserId()}})
+    
+    // if(user = null)
+    // console.log("DEBUG")
+    // console.log(getUserId())
+
+    // console.log(user.id)
+  
   const info = await Novels.findAll({
     attributes: ['id', 'title'],
       where: {
         title: {
           [Op.substring]:req.body.substring
         },
-        editable:true
+        editable:true,
+        [Op.or]: [
+          { public: true },
+          { public: false,
+            userId: user.id }
+        ]
+        // $or: [
+        //   {
+        //       public: true
+        //   }, 
+        //   {
+        //       public:false,
+        //       userId: user.id
+        //   }
+        // ]
       },
       order: [['createdAt', 'DESC']]
     }); 
+    // console.log(info)
     res.json(info);
   }catch(err){
     res.status(500).json({ error: err.message });
@@ -136,11 +162,14 @@ exports.getChaptersOfNovel = async (req, res) =>{
 exports.publishNovel = async (req, res) => {
     try {
         // wstaw nową opowieść, w [0] jest jej nowa część
+        const user = await Users.findOne({attributes: ['id'],where:{uid:getUserId()}})
+
         const newNovel = await this.createNovel(
             req.body.parentId,
-            req.body.userId,
+            user.id,
             req.body.chapters[0].title,
-            req.body.chapters[0].text
+            req.body.chapters[0].text,
+            req.body.public
         )
 
 
@@ -198,6 +227,33 @@ exports.getNovelStats = async (req, res) => {
   try {
       const stats = await NovelStats.findOne({where:{ novelId: req.body.id}});
       res.json(stats);
+  }catch(err){
+    res.status(500).json({ error: err.message });
+  }
+};
+
+exports.getUserUID = async (req, res) => {
+  try {
+    const info = await Novels.findAll({
+      attributes: ['id', 'title'],
+        where: {
+          title: {
+            [Op.substring]:'a'
+          },
+          editable:true,
+          [Op.or]: [
+            { public: true },
+            { public: false,
+            userId: 1}
+          ]
+        },
+        order: [['createdAt', 'DESC']]
+      }); 
+      // console.log(info)
+      const uid = getUserId()
+      // console.log("AAAA")
+
+      res.json({uid:uid});
   }catch(err){
     res.status(500).json({ error: err.message });
   }

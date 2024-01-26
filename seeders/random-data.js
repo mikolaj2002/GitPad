@@ -6,6 +6,7 @@ module.exports = {
       let users = []
       for(let i=0; i<nOfUsers;i++){
         users.push({
+            uid: i,
             nick: faker.person.firstName(),
             follows: faker.number.int(100),
             red_flags: faker.number.int(3)
@@ -27,7 +28,8 @@ module.exports = {
             faker.number.int(i-1)+1,
             faker.number.int(nOfUsers-1)+1,
             faker.lorem.word(),
-            faker.lorem.paragraphs(1)
+            faker.lorem.paragraphs(1),
+            true
         )
 
         novelStats.push({

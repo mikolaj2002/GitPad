@@ -23,7 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER,
     title: DataTypes.STRING,
     text: DataTypes.TEXT,
-    editable: DataTypes.BOOLEAN
+    editable: DataTypes.BOOLEAN,
+    public:DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'Novels',

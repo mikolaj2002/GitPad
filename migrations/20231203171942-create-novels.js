@@ -37,6 +37,9 @@ module.exports = {
       editable: {
         type: Sequelize.BOOLEAN
       },
+      public: {
+        type: Sequelize.BOOLEAN
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
