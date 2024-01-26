@@ -7,12 +7,70 @@ const env = process.env.NODE_ENV || "development";
 const dbConfig = config[env];
 const sequelize = new Sequelize(dbConfig);
 const Users = require('../models/users')(sequelize, Sequelize);
+const { Op } = require("sequelize");
 
-exports.getHomePage = (req, res) =>{
+const Novels = require('../models/novels')(sequelize, Sequelize);
+const NovelEdits = require('../models/noveledits')(sequelize, Sequelize);
+const NovelStats = require('../models/novelstats')(sequelize, Sequelize);
+
+
+
+exports.getHomePage = async (req, res) => {
+  try {
+    //const allNovels = await Novels.findAll();
+    //const rand_id = Math.floor(Math.random() * allNovels.length);   // prymitywne losowanie do zmiany
+    const rand_id = 1
+    const stories = await Novels.findAll({
+      where: {
+        novelId: rand_id
+      }
+    });
+
+    const mainStory = await Novels.findOne({
+      where: {
+        id: rand_id
+      }
+    });
+
     const viewsData = {
-        pageTitle: 'GitPad - Home',
+      stories: stories,
+      mainStory: mainStory,
+      pageTitle: 'Gidpad - Strona główna',
     };
     res.render('home', viewsData);
+  } catch (e) {
+    console.log(e);
+    res.status(500).send("Internal Server Error");
+  }
+};
+
+
+exports.getSpecifiedHomePage = async (req, res) => {
+  try {
+    const rand_id = req.params.novelId
+
+    const stories = await Novels.findAll({
+      where: {
+        novelId: rand_id
+      }
+    });
+
+    const mainStory = await Novels.findOne({
+      where: {
+        id: rand_id
+      }
+    });
+
+    const viewsData = {
+      stories: stories,
+      mainStory: mainStory,
+      pageTitle: 'Gidpad - Strona główna',
+    };
+    res.render('home', viewsData);
+  } catch (e) {
+    console.log(e);
+    res.status(500).send("Internal Server Error");
+  }
 };
 
 exports.getAddPage = async (req, res) =>{

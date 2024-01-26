@@ -1,15 +1,54 @@
 body{
-    background-color: #336733;
+    background-color: #c4e2a9;
 }
 .container{
     color: black;
 }
 .navbar{
-    background-color: #4E6F2B;
+    background-color: #8f78a8;
+    color: black;
 }
 
 footer{
     color: black;
-    background-color: #4E6F2B;
+    background-color: #8f78a8;
 }
 
+.min-story{
+    width: 30vw;
+    height: 11vh;
+    padding: 10px;
+    border: #132613 1px solid;
+    margin-bottom: 10px;
+}
+
+.min-story-heade{
+    width: 10px;
+    height: 10vh;
+    padding: 20px;
+}
+
+.Row {
+    display: table;
+    width: 100%; /*Optional*/
+    height: auto;
+    table-layout: fixed; /*Optional*/
+    border-spacing: 10px; /*Optional*/
+    margin-bottom: 20px;
+}
+.Column {
+    display: table-cell;
+    background-color: #c58474;
+    padding: 10px;
+    height: 60vh;
+    margin: 20px;
+}
+
+.story{
+    width: 30vw;
+    height: auto;
+    border: green 1px, solid;
+    font-size: large;
+    margin-left: 10px;
+
+}
