@@ -64,7 +64,7 @@ exports.handleRegisterForm = (req, res) => {
             const user = userCredential.user;
             // Dodanie użytkownika do bazy danych
             const uid = user.uid
-            createUser(uid,nick,0,0)
+            createUser(uid, nick, 0, 0)
             res.redirect('/');
         })
         .catch((error) => {
