@@ -3,6 +3,7 @@
   padding: 0px;
   box-sizing: border-box;
   color: #000;
+  font-family: sans-serif;
 }
 
 nav ul {
@@ -20,18 +21,15 @@ nav {
   position: fixed;
   width: 100%;
 }
-
 nav ul {
   display: flex;
   justify-content: center;
   flex-basis: 50%;
 }
-
 nav ul a {
   padding: 2em;
   transition-duration: 0.5s;
 }
-
 nav ul a:hover {
   background-color: #76a04a;
 }
@@ -40,11 +38,9 @@ footer {
   background-color: #4E6F2B;
   color: #000;
 }
-
 footer div {
   padding: 1em;
 }
-
 footer div p {
   text-align: center;
 }
@@ -53,4 +49,13 @@ main {
   min-height: 100vh;
   background-color: #336733;
   padding-top: 5.5em;
+}
+
+.errorPage h1 {
+  text-align: center;
+  margin: 2em;
+}
+.errorPage p {
+  text-align: center;
+  font-size: large;
 }
