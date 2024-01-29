@@ -110,7 +110,7 @@ exports.getAboutPage = (req, res) =>{
     res.render('about', viewsData);
 };
 
-exports.getAccountPage = (req, res) =>{
+exports.getAccountPage = async (req, res) =>{
   const user = getUserId();
     if(user == null){
       const viewsData = {
@@ -118,7 +118,15 @@ exports.getAccountPage = (req, res) =>{
       };
       res.render('account', viewsData);
     } else {
-      res.redirect('/account_info');
+      const user = await Users.findOne({attributes: ['id'],where:{uid:getUserId()}})
+      if(user == null){
+        const viewsData = {
+          pageTitle: 'GitPad - Konto',
+        };
+        res.render('account', viewsData);
+      }
+      else
+        res.redirect('/account_info');
     }
 };
 
@@ -126,11 +134,19 @@ exports.getAccountInfoPage = async (req, res) =>{
   const user = getUserId()
     if(user != null){
       const user = await Users.findOne({where:{uid:getUserId()}});
-      const viewsData = {
-        pageTitle: 'GitPad - Konto',
-        userName: user.nick,
-      };
-      res.render('account_info', viewsData);
+      if(user == null){
+        const viewsData = {
+          pageTitle: 'GitPad - Konto',
+        };
+        res.render('account', viewsData);
+      }
+      else{
+        const viewsData = {
+          pageTitle: 'GitPad - Konto',
+          userName: user.nick,
+        };
+        res.render('account_info', viewsData);
+      }
     } else {
       res.redirect('/account');
     }
