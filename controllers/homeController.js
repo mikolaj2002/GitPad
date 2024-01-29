@@ -111,10 +111,29 @@ exports.getAboutPage = (req, res) =>{
 };
 
 exports.getAccountPage = (req, res) =>{
-    const viewsData = {
+  const user = getUserId();
+    if(user == null){
+      const viewsData = {
         pageTitle: 'GitPad - Konto',
-    };
-    res.render('account', viewsData);
+      };
+      res.render('account', viewsData);
+    } else {
+      res.redirect('/account_info');
+    }
+};
+
+exports.getAccountInfoPage = async (req, res) =>{
+  const user = getUserId()
+    if(user != null){
+      const user = await Users.findOne({where:{uid:getUserId()}});
+      const viewsData = {
+        pageTitle: 'GitPad - Konto',
+        userName: user.nick,
+      };
+      res.render('account_info', viewsData);
+    } else {
+      res.redirect('/account');
+    }
 };
 
 exports.getLoginPage = (req, res) =>{

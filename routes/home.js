@@ -8,6 +8,7 @@ router.get('/add', getAddPage);
 router.get('/library', getLibraryPage);
 router.get('/about', getAboutPage);
 router.get('/account', getAccountPage);
+router.get('/account_info', getAccountInfoPage);
 router.get('/login', getLoginPage);
 router.get('/register', getRegisterPage);
 router.get('/contact', getContactPage);
