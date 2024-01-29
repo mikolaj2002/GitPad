@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getHomePage,getAddPage, getLibraryPage, getAboutPage, getAccountPage, getLoginPage, getRegisterPage, getContactPage, getSpecifiedHomePage, postReport, postSend} = require("../controllers/homeController");
+const {getAccountInfoPage, getHomePage,getAddPage, getLibraryPage, getAboutPage, getAccountPage, getLoginPage, getRegisterPage, getContactPage, getSpecifiedHomePage, postReport, postSend} = require("../controllers/homeController");
 
 router.get('/', getHomePage);
 router.get('/novel/:novelId', getSpecifiedHomePage);
