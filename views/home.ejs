@@ -12,7 +12,7 @@
                     <% if (stories[0]) { %>
                         <% for(let story of stories) { %>
                             <div class="min-story">
-                                <div><%= story.id %></div>
+                                <div><%= story.title %></div>
                                 <div><%= story.text.substring(0, 50)+"..." %></div>
                                 <div>
                                     <form action="/novel/<%= story.id %>" method="get">
@@ -37,9 +37,12 @@
                         <div class="story">
                             
                             <div><h1>Tytuł: <%= mainStory.title %></h1></div>
-                            <div><%= mainStory.id %></div>
                             <div><h6>Treść:</h6></div>
                             <div><%= mainStory.text %></div>
+                            <form action="/contact/<%= mainStory.id %>" method="get">
+                                <input type="hidden" name="storyId" value="<%= mainStory.id %>">
+                                <button class="btn">Zgłoś</button>
+                            </form>
                         </div>
                     <% } %>
                 </div>

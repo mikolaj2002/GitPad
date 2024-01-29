@@ -1,25 +1,25 @@
 const { getUserId } = require("./authenticationController");
-
-// do sprawdzania czy user istnieje w bazie
 const config = require("../config/config.json");
 const { Sequelize } = require('sequelize');
 const env = process.env.NODE_ENV || "development";
 const dbConfig = config[env];
 const sequelize = new Sequelize(dbConfig);
 const Users = require('../models/users')(sequelize, Sequelize);
-const { Op } = require("sequelize");
-
 const Novels = require('../models/novels')(sequelize, Sequelize);
-const NovelEdits = require('../models/noveledits')(sequelize, Sequelize);
-const NovelStats = require('../models/novelstats')(sequelize, Sequelize);
+const Reports = require('../models/reports')(sequelize, Sequelize);
 
 
 
 exports.getHomePage = async (req, res) => {
   try {
-    //const allNovels = await Novels.findAll();
-    //const rand_id = Math.floor(Math.random() * allNovels.length);   // prymitywne losowanie do zmiany
-    const rand_id = 1
+    let ids = []
+    const all_stories = await Novels.findAll();
+    for (let story of all_stories){
+        ids.push(story.id);
+    }
+    const rand_id = ids[Math.floor(Math.random() * ids.length)];
+
+
     const stories = await Novels.findAll({
       where: {
         novelId: rand_id
@@ -40,7 +40,7 @@ exports.getHomePage = async (req, res) => {
     res.render('home', viewsData);
   } catch (e) {
     console.log(e);
-    res.status(500).send("Internal Server Error");
+    res.status(500).send("Błąd bazy, sprawdź połaczenie!");
   }
 };
 
@@ -69,7 +69,7 @@ exports.getSpecifiedHomePage = async (req, res) => {
     res.render('home', viewsData);
   } catch (e) {
     console.log(e);
-    res.status(500).send("Internal Server Error");
+    res.status(500).send("Błąd bazy, sprawdź połaczenie!");
   }
 };
 
@@ -93,15 +93,11 @@ exports.getAddPage = async (req, res) =>{
     }
 };
 
-exports.getCategoryPage = (req, res) =>{
-    const viewsData = {
-        pageTitle: 'GitPad - Kategorie',
-    };
-    res.render('categories', viewsData);
-};
 
-exports.getLibraryPage = (req, res) =>{
+exports.getLibraryPage = async (req, res) =>{
+    const stories = await Novels.findAll();
     const viewsData = {
+        stories,
         pageTitle: 'GitPad - Biblioteka',
     };
     res.render('library', viewsData);
@@ -136,8 +132,60 @@ exports.getRegisterPage = (req, res) =>{
 };
 
 exports.getContactPage = (req, res) =>{
-    const viewsData = {
+    const report_id = req.params.novelId
+    
+    let viewsData = {}
+    if (report_id){
+      viewsData = {
+        novelId: report_id,
         pageTitle: 'GitPad - Kontakt',
-    };
+      };
+    } else{
+      viewsData = {
+        novelId: null,
+        pageTitle: 'GitPad - Kontakt',
+      };
+    }
     res.render('contact', viewsData);
+};
+
+exports.postReport = async (req, res) => {
+  try {
+    const novelId = req.params.novelId;
+    const topic = req.params.topic;
+    const message = req.body.message;
+
+    const newReport = await Reports.create({
+      novelId: novelId,
+      topic: topic,
+      message: message
+    });
+
+    const viewsData = {
+      pageTitle: 'GitPad - Zgłoszono',
+    };
+    res.render('reported', viewsData);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+exports.postSend = async (req, res) => {
+  try {
+    const novelId = req.params.novelId;
+    const topic = req.body.topic;
+    const message = req.body.message;
+
+    const newReport = await Reports.create({
+      topic: topic,
+      message: message
+    });
+
+    const viewsData = {
+      pageTitle: 'GitPad - Wysłano wiadmość',
+    };
+    res.render('reported', viewsData);
+  } catch (error) {
+    console.error(error);
+  }
 };
