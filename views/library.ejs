@@ -4,12 +4,27 @@
 <%- include('includes/navigation.ejs') %>
 <main>
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="text-center my-5">Biblioteka</h1>
 
-            </div>
-        </div>
+            
+                <h1 class="text-center my-5">Biblioteka</h1>
+                <% if (stories[0]) { %>
+                    <% for(let story of stories) { %>
+                        <% if (story.text != "") { %>
+                        <div class="min-story" style="float: left; margin-left: 10px; height: 100px;">
+                            <div>TYTUŁ: <%= story.title %></div>
+                            <div><%= story.text.substring(0, 50)+"..." %></div>
+                            <div>
+                                <form action="/novel/<%= story.id %>" method="get">
+                                    <input type="hidden" name="storyId" value="<%= story.id %>">
+                                    <button class="btn">Czytaj</button>
+                                </form>
+                            </div>
+                        </div> 
+                        <% } %>
+                    <% } %>
+                <% } %>
+
+        
     </div>
 
 </main>
