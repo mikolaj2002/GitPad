@@ -1,3 +1,30 @@
 .libraryPage {
-    
+    div {
+        width: 90%;
+        margin: auto;
+        h1 {
+            text-align: center;
+            margin: 1em;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            .singleStory {
+                text-decoration: none;
+                background-color: $secondaryBackgroundColor;
+                flex-basis: 24%;
+                border-radius: 1em;
+                padding: 1em;
+                margin: 1em 0em;
+                &:hover {
+                    background-color: $secondaryBackgroundHoverColor;
+                }
+                h2 {
+                    font-size: 1.2em;
+                    margin: 0.5em 0em;
+                }
+            }
+        }
+    }
 }

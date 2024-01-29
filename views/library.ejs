@@ -1,31 +1,22 @@
 <%- include('includes/head.ejs') %>
 </head>
-<body class="d-flex flex-column min-vh-100">
-<%- include('includes/navigation.ejs') %>
-<main>
-    <div class="container">
-
-            
-                <h1 class="text-center my-5">Biblioteka</h1>
+<body>
+    <%- include('includes/navigation.ejs') %>
+    <main class="libraryPage">
+        <div>  
+            <h1>Biblioteka</h1>
+            <div class="content">
                 <% if (stories[0]) { %>
                     <% for(let story of stories) { %>
                         <% if (story.text != "") { %>
-                        <div class="min-story" style="float: left; margin-left: 10px; height: 100px;">
-                            <div>TYTUŁ: <%= story.title %></div>
-                            <div><%= story.text.substring(0, 50)+"..." %></div>
-                            <div>
-                                <form action="/novel/<%= story.id %>" method="get">
-                                    <input type="hidden" name="storyId" value="<%= story.id %>">
-                                    <button class="btn">Czytaj</button>
-                                </form>
-                            </div>
-                        </div> 
+                        <a class="singleStory" href="novel/<%= story.id %>">
+                            <h2><%= story.title %></h2>
+                            <p><%= story.text.substring(0, 50)+"..." %></p>
+                        </a> 
                         <% } %>
                     <% } %>
                 <% } %>
-
-        
-    </div>
-
-</main>
-<%- include('includes/footer.ejs') %>
+            </div>
+        </div>
+    </main>
+    <%- include('includes/footer.ejs') %>
