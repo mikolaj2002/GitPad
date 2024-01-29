@@ -6,6 +6,12 @@ const homeRoutes = require('./routes/home');
 const dbRoutes = require('./routes/database');
 const authRoutes = require('./routes/authentication');
 const { initializeApp } = require("firebase/app");
+const env = process.env.NODE_ENV || "development";
+const config = require("./config/config.json");
+const { Sequelize } = require('sequelize');
+const dbConfig = config[env];
+const sequelize = new Sequelize(dbConfig);
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyAOycDldC_EUtx7KzgHlilMhRBi3TK1n4I",
@@ -44,6 +50,14 @@ app.use((req, res, next) => {
     };
     res.status(404).render('404', viewsData);
 });
+
+sequelize.sync()
+    .then(result => {
+
+    })
+    .catch(e=>{
+        console.log(e)
+    })
 
 app.listen(port, () => {
     console.log("Server started on localhost:" + port)
