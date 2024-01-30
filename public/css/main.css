@@ -108,7 +108,7 @@ main {
   margin: auto;
   display: flex;
   flex-direction: column;
-  background-color: #90a955;
+  background-color: #ebf4a1;
   border-radius: 1em;
   padding: 0.5em 1em;
 }
@@ -121,28 +121,57 @@ main {
   margin: 0.2em;
   flex-basis: 100%;
 }
-.accountInfoPage .container .errorBox {
-  color: #f00;
-  text-align: center;
-}
-.accountInfoPage .container form {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0em 5em;
-  justify-content: center;
-}
-.accountInfoPage .container form label {
-  flex-basis: 100%;
-}
-.accountInfoPage .container form input {
-  flex-basis: 100%;
+.accountInfoPage .container .logout {
+  flex-basis: content;
   padding: 1em;
   border-radius: 1em;
-  margin: 0.25em 0em 1em;
-  border-style: solid;
+  background-color: #90a955;
+  text-decoration: none;
+  margin: 0em 1em 1em 1em;
+  border: none;
+  transition-duration: 0.5s;
+  text-align: center;
 }
-.accountInfoPage .container form .submit {
-  flex-basis: 30%;
+.accountInfoPage .container .logout:hover {
+  background-color: #4d772d;
+}
+
+.accountPage h1 {
+  text-align: center;
+  margin: 1em;
+  color: #ebf4a1;
+}
+.accountPage .container {
+  width: 30vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #ebf4a1;
+  border-radius: 1em;
+  padding: 1.5em 1em;
+}
+.accountPage .container h2 {
+  text-align: center;
+  margin: 2em 0em 1em 0em;
+}
+.accountPage .container p {
+  text-align: center;
+  margin: 0.2em;
+  flex-basis: 100%;
+}
+.accountPage .container a {
+  flex-basis: content;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #90a955;
+  text-decoration: none;
+  margin: 0.5em 1em;
+  border: none;
+  transition-duration: 0.5s;
+  text-align: center;
+}
+.accountPage .container a:hover {
+  background-color: #4d772d;
 }
 
 .addPage .container {
@@ -193,6 +222,15 @@ main {
 }
 .contactPage .container form .submit:hover {
   background-color: #ebf4a1;
+}
+
+.homePage h1 {
+  text-align: center;
+  margin: 1em;
+  color: #ebf4a1;
+}
+.homePage h1 b {
+  color: #ebf4a1;
 }
 
 .libraryPage div {
@@ -278,4 +316,4 @@ main {
   text-align: center;
   color: #ebf4a1;
   padding: 1em;
-}
+}/*# sourceMappingURL=main.css.map */

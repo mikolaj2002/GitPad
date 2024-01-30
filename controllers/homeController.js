@@ -35,7 +35,8 @@ exports.getHomePage = async (req, res) => {
     const viewsData = {
       stories: stories,
       mainStory: mainStory,
-      pageTitle: 'Gidpad - Strona główna',
+      pageTitle: 'Gitpad',
+      pageHeader: 'Odkryj coś nowego!',
     };
     res.render('home', viewsData);
   } catch (e) {
@@ -64,7 +65,8 @@ exports.getSpecifiedHomePage = async (req, res) => {
     const viewsData = {
       stories: stories,
       mainStory: mainStory,
-      pageTitle: 'Gidpad - Strona główna',
+      pageTitle: 'Gitpad - ' + mainStory.title,
+      pageHeader: "",
     };
     res.render('home', viewsData);
   } catch (e) {

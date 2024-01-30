@@ -1,3 +1,45 @@
 .accountPage {
-    
+    h1 {
+        text-align: center;
+        margin: 1em;
+        color: $secondaryTextColor;
+    }
+
+    .container {
+        width: 30vw;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        background-color: $backgroundColor4;
+        border-radius: 1em;
+        padding: 1.5em 1em;
+
+        h2 {
+            text-align: center;
+            margin: 2em 0em 1em 0em;
+        }
+
+        p {
+            text-align: center;
+            margin: 0.2em;
+            flex-basis: 100%;
+        }
+
+        a {
+            flex-basis: content;
+            padding: 1em;
+            border-radius: 1em;
+            background-color: $backgroundColor3;
+            text-decoration: none;
+            margin: 0.5em 1em;
+            border: none;
+            transition-duration: 0.5s;
+            text-align: center;
+
+            &:hover {
+                background-color: $backgroundColor2;
+            }
+        }
+
+    }
 }
