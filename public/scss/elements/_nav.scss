@@ -1,5 +1,5 @@
 nav {
-    background-color: $secondaryBackgroundColor;
+    background-color: $backgroundColor2;
     display: flex;
     justify-content: center;
     position: fixed;
@@ -7,12 +7,14 @@ nav {
     ul {
         display: flex;
         justify-content: center;
-        flex-basis: 50%;
+        align-items: center;
+        flex-basis: 100%;
         a {
+            flex-basis: content;
             padding: 2em;
             transition-duration: 0.5s;
             &:hover {
-                background-color: $secondaryBackgroundHoverColor;
+                background-color: $backgroundColor3;
             }
         }
     }

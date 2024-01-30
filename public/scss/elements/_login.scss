@@ -1,10 +1,11 @@
 .loginPage, .registerPage {
+    padding: 10em 0em 5em;
     div {
         width: 30vw;
-        margin: 5em auto;
+        margin: auto;
         display: flex;
         flex-direction: column;
-        background-color: $secondaryOpaqueBackgroundColor;
+        background-color: $backgroundColor3;
         border-radius: 1em;
         padding: 4em 1em;
         h1 {

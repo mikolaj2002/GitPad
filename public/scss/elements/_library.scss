@@ -5,6 +5,7 @@
         h1 {
             text-align: center;
             margin: 1em;
+            color: $secondaryTextColor;
         }
         .content {
             display: flex;
@@ -12,13 +13,13 @@
             justify-content: space-between;
             .singleStory {
                 text-decoration: none;
-                background-color: $secondaryBackgroundColor;
+                background-color: $backgroundColor3;
                 flex-basis: 24%;
                 border-radius: 1em;
                 padding: 1em;
                 margin: 1em 0em;
                 &:hover {
-                    background-color: $secondaryBackgroundHoverColor;
+                    background-color: $backgroundColor4;
                 }
                 h2 {
                     font-size: 1.2em;
