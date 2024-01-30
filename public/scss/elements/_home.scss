@@ -93,4 +93,68 @@
             }
         }
     }
+
+    .adding {
+        margin: 1em;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+
+        h3 {
+            text-align: center;
+            margin: 1em;
+            color: $secondaryTextColor;
+            font-weight: lighter;
+            margin: 1em;
+        }
+
+        .addBttn {
+            flex-basis: content;
+            padding: 1em;
+            border-radius: 1em;
+            background-color: $backgroundColor3;
+            text-decoration: none;
+            margin: 1em auto;
+            border: none;
+            transition-duration: 0.5s;
+            text-align: center;
+
+            &:hover {
+                background-color: $backgroundColor2;
+            }
+        }
+    }
+
+    .errDiv {
+        display: flex;
+        width: 90%;
+        margin: auto;
+        flex-direction: column;
+
+        .err {
+            text-align: center;
+            margin: 1em;
+            color: $secondaryTextColor;
+            font-weight: lighter;
+            margin: 1em;
+
+
+        }
+
+        .home {
+            padding: 1em;
+            border-radius: 1em;
+            background-color: $backgroundColor3;
+            text-decoration: none;
+            margin: 1em auto;
+            border: none;
+            transition-duration: 0.5s;
+            text-align: center;
+
+            &:hover {
+                background-color: $backgroundColor2;
+            }
+        }
+    }
+
 }

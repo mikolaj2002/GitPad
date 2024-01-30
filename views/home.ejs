@@ -24,9 +24,12 @@
                         <% } %>
 
                             <div class="children">
-                                <h1>Kontynuuj czytanie:</h1>
-                                <div class="content">
-                                    <% if (stories[0]) { %>
+                                <% if (stories[0]) { %>
+
+                                    <h1>Kontynuuj czytanie:</h1>
+
+                                    <div class="content">
+
                                         <% for(let story of stories) { %>
                                             <!-- <div class="singleStory">
                                             <div>
@@ -50,22 +53,30 @@
                                                 </form> -->
                                             <% } %>
 
-                                </div>
+                                    </div>
+                            </div>
+
+                            <div class="adding">
+                                <h3>Masz pomysł jak może potoczyć się ta historia? Stwórz własną kontynuację!</h3>
+                                <a class="addBttn" href="/add?storyId=<%= mainStory.id %>">Dodaj część</a>
                             </div>
 
                             <% } else { %>
-                                <div>Brak powiązanych części. Dodaj nową ;D </div>
-                                <form action="/add" method="get">
-                                    <input type="hidden" name="storyId" value="<%= mainStory.id %>">
-                                    <button class="btn">Dodaj</button>
-                                </form>
+                                <div class="adding">
+                                    <h3>Ta opowieść nie ma jeszcze kontynuacji. Stwórz własną!</h3>
+                                    <a class="addBttn" href="/add?storyId=<%= mainStory.id %>">Dodaj część</a>
+                                </div>
                                 <% } %>
 
 
 
-                                    </div>
                                     <% } else { %>
-                                        ERROR: Błąd bazy danych
+
+                                        <div class="errDiv">
+
+                                            <h3 class="err">Niestety, ta historia nie istnieje :(</h3>
+                                            <a class="home" href="/">Powrót</a>
+                                        </div>
                                         <% } %>
 
                                             </div>

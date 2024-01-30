@@ -340,6 +340,59 @@ main {
   font-size: 1.2em;
   margin: 0.5em 0em;
 }
+.homePage .adding {
+  margin: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.homePage .adding h3 {
+  text-align: center;
+  margin: 1em;
+  color: #ebf4a1;
+  font-weight: lighter;
+  margin: 1em;
+}
+.homePage .adding .addBttn {
+  flex-basis: content;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #90a955;
+  text-decoration: none;
+  margin: 1em auto;
+  border: none;
+  transition-duration: 0.5s;
+  text-align: center;
+}
+.homePage .adding .addBttn:hover {
+  background-color: #4d772d;
+}
+.homePage .errDiv {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  flex-direction: column;
+}
+.homePage .errDiv .err {
+  text-align: center;
+  margin: 1em;
+  color: #ebf4a1;
+  font-weight: lighter;
+  margin: 1em;
+}
+.homePage .errDiv .home {
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #90a955;
+  text-decoration: none;
+  margin: 1em auto;
+  border: none;
+  transition-duration: 0.5s;
+  text-align: center;
+}
+.homePage .errDiv .home:hover {
+  background-color: #4d772d;
+}
 
 .libraryPage div {
   width: 90%;
@@ -435,4 +488,4 @@ main {
   text-align: center;
   color: #ebf4a1;
   padding: 1em;
-}
+}/*# sourceMappingURL=main.css.map */
