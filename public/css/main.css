@@ -20,6 +20,8 @@ nav {
   justify-content: center;
   position: fixed;
   width: 100%;
+  font-weight: bold;
+  color: #4d772d;
 }
 nav ul {
   display: flex;
@@ -268,6 +270,75 @@ main {
 }
 .homePage h1 b {
   color: #ebf4a1;
+}
+.homePage .story {
+  width: 50vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #ebf4a1;
+  border-radius: 1em;
+  padding: 0.5em 1em;
+}
+.homePage .story h1 {
+  text-align: center;
+  color: #112b12;
+}
+.homePage .story .text {
+  font-size: large;
+  padding: 1em;
+}
+.homePage .story .text pre {
+  white-space: pre-wrap;
+  word-break: keep-all;
+}
+.homePage .story p {
+  text-align: center;
+  margin: 0.2em;
+  flex-basis: 100%;
+}
+.homePage .story form {
+  display: flex;
+}
+.homePage .story form .btn {
+  flex-basis: content;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #90a955;
+  text-decoration: none;
+  margin: 0em 1em 1em 1em;
+  border: none;
+  transition-duration: 0.5s;
+  text-align: center;
+  margin-left: auto;
+}
+.homePage .story form .btn:hover {
+  background-color: rgb(143, 0, 0);
+  color: #90a955;
+}
+.homePage .children {
+  width: 90%;
+  margin: auto;
+}
+.homePage .children .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.homePage .children .content .singleStory {
+  text-decoration: none;
+  background-color: #90a955;
+  flex-basis: 24%;
+  border-radius: 1em;
+  padding: 1em;
+  margin: 1em 1em;
+}
+.homePage .children .content .singleStory:hover {
+  background-color: #ebf4a1;
+}
+.homePage .children .content .singleStory h2 {
+  font-size: 1.2em;
+  margin: 0.5em 0em;
 }
 
 .libraryPage div {

@@ -8,67 +8,66 @@
                     <%= pageHeader %>
                 </h1>
                 <% if (mainStory){ %>
-                    <div class="Row">
-                        <div class="Column">
-                            <% if (mainStory) { %>
-                                <div class="story">
-
-                                    <div>
-                                        <h1>Tytuł: <%= mainStory.title %>
-                                        </h1>
-                                    </div>
-                                    <div>
-                                        <h6>Treść:</h6>
-                                    </div>
-                                    <div>
-                                        <%= mainStory.text %>
-                                    </div>
-                                    <form action="/contact/<%= mainStory.id %>" method="get">
-                                        <input type="hidden" name="storyId" value="<%= mainStory.id %>">
-                                        <button class="btn">Zgłoś</button>
-                                    </form>
-                                </div>
-                                <% } %>
-                        </div>
-
-                        <div class="Column">
-                            <div class="min-story-header">
-                                <h1>Następne części:</h1>
+                    <% if (mainStory) { %>
+                        <div class="story">
+                            <h1>
+                                <%= mainStory.title %>
+                            </h1>
+                            <div class="text">
+                                <pre><%= mainStory.text %></pre>
                             </div>
-                            <% if (stories[0]) { %>
-                                <% for(let story of stories) { %>
-                                    <div class="min-story">
-                                        <div>
-                                            <%= story.title %>
-                                        </div>
-                                        <div>
-                                            <%= story.text.substring(0, 50)+"..." %>
-                                        </div>
-                                        <div>
-                                            <form action="/novel/<%= story.id %>" method="get">
-                                                <input type="hidden" name="storyId" value="<%= story.id %>">
-                                                <button class="btn">Czytaj</button>
-                                            </form>
-                                        </div>
-                                    </div>
-
-                                    <% } %>
-                                        <% } else { %>
-                                            <div>Brak powiązanych części. Dodaj nową ;D </div>
-                                            <form action="/add" method="get">
-                                                <input type="hidden" name="storyId" value="<%= mainStory.id %>">
-                                                <button class="btn">Dodaj</button>
-                                            </form>
-                                            <% } %>
+                            <form action=" /contact/<%=mainStory.id %>" method="get">
+                                <input type="hidden" name="storyId" value="<%= mainStory.id %>">
+                                <button class="btn">Zgłoś</button>
+                            </form>
                         </div>
-
-
-
-                    </div>
-                    <% } else { %>
-                        ERROR: Błąd bazy danych
                         <% } %>
 
+                            <div class="children">
+                                <h1>Kontynuuj czytanie:</h1>
+                                <div class="content">
+                                    <% if (stories[0]) { %>
+                                        <% for(let story of stories) { %>
+                                            <!-- <div class="singleStory">
+                                            <div>
+                                                <%= story.title %>
+                                            </div>
+                                            <div>
+                                                <%= story.text.substring(0, 50)+"..." %>
+                                            </div>
+                                            <div> -->
+                                            <a class="singleStory" href="/novel/<%= story.id %>">
+                                                <h2>
+                                                    <%= story.title %>
+                                                </h2>
+                                                <p>
+                                                    <%= story.text.substring(0, 50)+"..." %>
+                                                </p>
+                                            </a>
+                                            <!-- <form action="/novel/<%= story.id %>" method="get">
+                                                    <input type="hidden" name="storyId" value="<%= story.id %>">
+                                                    <button class="btn">Czytaj</button>
+                                                </form> -->
+                                            <% } %>
+
+                                </div>
                             </div>
+
+                            <% } else { %>
+                                <div>Brak powiązanych części. Dodaj nową ;D </div>
+                                <form action="/add" method="get">
+                                    <input type="hidden" name="storyId" value="<%= mainStory.id %>">
+                                    <button class="btn">Dodaj</button>
+                                </form>
+                                <% } %>
+
+
+
+                                    </div>
+                                    <% } else { %>
+                                        ERROR: Błąd bazy danych
+                                        <% } %>
+
+                                            </div>
             </main>
             <%- include('includes/footer.ejs') %>

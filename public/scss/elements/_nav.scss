@@ -4,12 +4,15 @@ nav {
     justify-content: center;
     position: fixed;
     width: 100%;
+    font-weight: bold;
+    color: $backgroundColor2;
 
     ul {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-basis: 100%;
+
         a {
             flex-basis: content;
             padding: 2em;

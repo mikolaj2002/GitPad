@@ -65,7 +65,7 @@ exports.getSpecifiedHomePage = async (req, res) => {
     const viewsData = {
       stories: stories,
       mainStory: mainStory,
-      pageTitle: 'Gitpad - ' + mainStory.title,
+      pageTitle: 'Gitpad',
       pageHeader: "",
     };
     res.render('home', viewsData);
