@@ -1,13 +1,23 @@
 <%- include('includes/head.ejs') %>
+<!--  -->
 <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
 <link rel="stylesheet" href="css/medium-editor.css"> -->
+<!--  -->
 </head>
 <body>
     <%- include('includes/navigation.ejs') %>
     <main class="addPage">
         <div class="container">
-            <h1>Nowe Opowiadanie</h1>
-            <p><% storyId %></p>
+            <h1>Nowe opowiadanie</h1>
+            <div class="form">
+                <label for="novelTitle">Tytuł:</label>
+                <input type="text" id="novelTitle" maxlength="16">
+                <label for="novelContent">Treść:</label>
+                <textarea name="novelContent" id="novelContent" cols="30" rows="8" maxlength="1000"></textarea>
+                <button id="publish" class="submit">Opublikuj</button>
+            </div>
+            
+
             <!-- <div>
                 <datalist id="novelNames">
                     <option>Nowe Opowiadanie</option>
@@ -19,18 +29,20 @@
             <input id="titleField" placeholder="Tytuł" style="color:rgb(113, 90, 90)"/>
             <button id="resetChapter">Usuń wpisany tekst</button>
             <div id="textField" class="editable" style="color:rgb(0, 0, 0);background-color: white;"></div>
-            <div> -->
-                <!--- <input id="userField" placeholder="Id użytokwnika"/> -->
-                <!-- <button id="publish">Zapisz</button> -->
-                <!--- <button id="test">Testuj</button> -->
-                <!-- <input id="public" type="checkbox" name="public" value="yes"> -->
-                <!-- <span style="color: white;">Opublikuj</span>  -->
-            <!-- </div> -->
+            <div>
+                <button id="publish">Zapisz</button>
+                <input id="public" type="checkbox" name="public" value="yes">
+                <span style="color: white;">Opublikuj</span> 
+            </div> -->
+            <!--- <input id="userField" placeholder="Id użytokwnika"/> -->
+            <!--- <button id="test">Testuj</button> -->
         </div>
 
     </main>
 
+    <!--  -->
     <!-- <script src="js/medium-editor.js"></script> -->
+    <!--  -->
     <script type="module" src="js/post.js"></script>
     <script type="module" src="js/add.js"></script>
     <%- include('includes/footer.ejs') %>

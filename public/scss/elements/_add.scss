@@ -1,11 +1,48 @@
 .addPage {
     .container {
-        width: 90%;
+        width: 80%;
         margin: auto;
         h1 {
             color: $secondaryTextColor;
             text-align: center;
             margin: 1em;
+        }
+        .form {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            label {
+                flex-basis: 100%;
+                color: $secondaryTextColor;
+                padding: 1em 0em 0.25em;
+                font-size: 18px;
+            }
+            input {
+                flex-basis: 100%;
+                padding: 0.5em;
+                font-size: 16px;
+                border-radius: 0.5em;
+                border: none;
+            }
+            textarea {
+                flex-basis: 100%;
+                padding: 0.5em;
+                font-size: 16px;
+                border-radius: 0.5em;
+                border: none;
+            }
+            .submit {
+                flex-basis: content;
+                padding: 1em;
+                border-radius: 1em;
+                background-color: $backgroundColor3;
+                margin: 1em;
+                border: none;
+                transition-duration: 0.5s;
+                &:hover {
+                    background-color: $backgroundColor4;
+                }
+            }
         }
 
     }
