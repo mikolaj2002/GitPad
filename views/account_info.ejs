@@ -1,19 +1,28 @@
 <%- include('includes/head.ejs') %>
-</head>
-<body>
-    <%- include('includes/navigation.ejs') %>
-    <main class="accountInfoPage">
-        <div class="container">
-            <h1>Konto</h1>
-            <h3 id="error" style="color: rgb(238, 81, 81);text-align: center;font-size:medium;"></h3>
-            <p>Zalogowano jako <b><%= userName %></b></p>
-            <a href="/sign_out">Wyloguj się</a>
-        </div>
-    </main>
+    </head>
 
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const errorMessage = urlParams.get('error');
-        document.getElementById("error").innerHTML = errorMessage;
-    </script>
-    <%- include('includes/footer.ejs') %>
+    <body>
+        <%- include('includes/navigation.ejs') %>
+            <main class="accountInfoPage">
+                <div class="container">
+                    <h1>Konto</h1>
+                    <h3 id="error" style="color: rgb(238, 81, 81);text-align: center;font-size:medium;"></h3>
+                    <p>Zalogowano jako: <b>
+                            <%= userName %>
+                        </b></p>
+                    <p>Liczba skarg: <b>
+                            <%= userFlags %>
+                        </b></p>
+                    <p>Data dołączenia: <b>
+                            <%= createdAt %>
+                        </b></p>
+                    <a href="/sign_out">Wyloguj się</a>
+                </div>
+            </main>
+
+            <script>
+                const urlParams = new URLSearchParams(window.location.search);
+                const errorMessage = urlParams.get('error');
+                document.getElementById("error").innerHTML = errorMessage;
+            </script>
+            <%- include('includes/footer.ejs') %>
