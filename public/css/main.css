@@ -50,7 +50,7 @@ footer div p {
 main {
   min-height: 100vh;
   background-color: #112b12;
-  padding-top: 5.5em;
+  padding: 5.5em 0em 3em;
 }
 
 .errorPage h1 {
@@ -364,4 +364,4 @@ main {
   text-align: center;
   color: #ebf4a1;
   padding: 1em;
-}/*# sourceMappingURL=main.css.map */
+}
