@@ -300,43 +300,53 @@ main {
   margin: 0.5em 0em;
 }
 
-.loginPage, .registerPage {
-  padding: 10em 0em 5em;
+.loginPage h1,
+.registerPage h1 {
+  text-align: center;
+  margin: 1em;
+  color: #ebf4a1;
 }
-.loginPage div, .registerPage div {
+.loginPage div,
+.registerPage div {
   width: 30vw;
   margin: auto;
   display: flex;
   flex-direction: column;
-  background-color: #4d772d;
+  background-color: #ebf4a1;
   border-radius: 1em;
-  padding: 4em 1em;
+  padding: 4em 1em 2em 1em;
 }
-.loginPage div h1, .registerPage div h1 {
+.loginPage div h1,
+.registerPage div h1 {
   text-align: center;
   margin: 0.5em 0em;
 }
-.loginPage div .errorBox, .registerPage div .errorBox {
+.loginPage div .errorBox,
+.registerPage div .errorBox {
   color: #f00;
   text-align: center;
 }
-.loginPage div form, .registerPage div form {
+.loginPage div form,
+.registerPage div form {
   display: flex;
   flex-wrap: wrap;
   padding: 0em 5em;
   justify-content: center;
 }
-.loginPage div form label, .registerPage div form label {
+.loginPage div form label,
+.registerPage div form label {
   flex-basis: 100%;
 }
-.loginPage div form input, .registerPage div form input {
+.loginPage div form input,
+.registerPage div form input {
   flex-basis: 100%;
   padding: 1em;
   border-radius: 1em;
   margin: 0.25em 0em 1em;
   border-style: solid;
 }
-.loginPage div form .submit, .registerPage div form .submit {
+.loginPage div form .submit,
+.registerPage div form .submit {
   flex-basis: content;
   padding: 1em;
   border-radius: 1em;
@@ -345,8 +355,9 @@ main {
   border: none;
   transition-duration: 0.5s;
 }
-.loginPage div form .submit:hover, .registerPage div form .submit:hover {
-  background-color: #ebf4a1;
+.loginPage div form .submit:hover,
+.registerPage div form .submit:hover {
+  background-color: #4d772d;
 }
 
 .reportedPage h1 {

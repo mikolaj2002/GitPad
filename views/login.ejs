@@ -1,24 +1,25 @@
 <%- include('includes/head.ejs') %>
-</head>
-<body>
-    <%- include('includes/navigation.ejs') %>
-    <main class="loginPage">
-        <div>
-            <h1>Logowanie</h1>
-            <p id="error" class="errorBox"></p>
-            <form action="/login_email" method="POST">
-                <label for="email">E-mail:</label>
-                <input type="text" name="email" placeholder="example@example.com" id="email">
-                <label for="password">Hasło:</label>
-                <input type="password" name="password" id="password">
-                <input type="submit" value="Zaloguj się" class="submit">
-            </form>
-        </div>
-    </main>
+    </head>
 
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const errorMessage = urlParams.get('error');
-        document.getElementById("error").innerHTML = errorMessage;
-    </script>
-    <%- include('includes/footer.ejs') %>
+    <body>
+        <%- include('includes/navigation.ejs') %>
+            <main class="loginPage">
+                <h1>Logowanie</h1>
+                <div>
+                    <p id="error" class="errorBox"></p>
+                    <form action="/login_email" method="POST">
+                        <label for="email">E-mail:</label>
+                        <input type="text" name="email" placeholder="example@example.com" id="email">
+                        <label for="password">Hasło:</label>
+                        <input type="password" name="password" id="password">
+                        <input type="submit" value="Zaloguj się" class="submit">
+                    </form>
+                </div>
+            </main>
+
+            <script>
+                const urlParams = new URLSearchParams(window.location.search);
+                const errorMessage = urlParams.get('error');
+                document.getElementById("error").innerHTML = errorMessage;
+            </script>
+            <%- include('includes/footer.ejs') %>
