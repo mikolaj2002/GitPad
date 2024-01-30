@@ -4,13 +4,16 @@ nav {
     justify-content: center;
     position: fixed;
     width: 100%;
+
     ul {
         display: flex;
         justify-content: center;
         flex-basis: 50%;
+
         a {
-            padding: 2em;
+            padding: 1em;
             transition-duration: 0.5s;
+
             &:hover {
                 background-color: $secondaryBackgroundHoverColor;
             }

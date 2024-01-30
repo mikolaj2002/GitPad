@@ -14,8 +14,8 @@ exports.getHomePage = async (req, res) => {
   try {
     let ids = []
     const all_stories = await Novels.findAll();
-    for (let story of all_stories){
-        ids.push(story.id);
+    for (let story of all_stories) {
+      ids.push(story.id);
     }
     const rand_id = ids[Math.floor(Math.random() * ids.length)];
 
@@ -73,115 +73,117 @@ exports.getSpecifiedHomePage = async (req, res) => {
   }
 };
 
-exports.getAddPage = async (req, res) =>{
-    const user = getUserId()
-    if(user == null){
-        const errorMessage = 'Musisz być zalogowany by stworzyć opowieść';
-        res.redirect('/account?error=' + errorMessage);
-    }else{
-        const user = await Users.findOne({attributes: ['id'],where:{uid:getUserId()}})
-        if(user == null){
-            const errorMessage = 'Użytkownik istnieje w bazie firebase, ale nie w lokalnej bazie';
-            res.redirect('/account?error=' + errorMessage);
-        }else{
-            // console.log(user)
-            const viewsData = {
-                pageTitle: 'GitPad - Home',
-            };
-            res.render('add', viewsData);
-        }
+exports.getAddPage = async (req, res) => {
+  const user = getUserId()
+  if (user == null) {
+    const errorMessage = 'Musisz być zalogowany by stworzyć opowieść';
+    res.redirect('/account?error=' + errorMessage);
+  } else {
+    const user = await Users.findOne({ attributes: ['id'], where: { uid: getUserId() } })
+    if (user == null) {
+      const errorMessage = 'Użytkownik istnieje w bazie firebase, ale nie w lokalnej bazie';
+      res.redirect('/account?error=' + errorMessage);
+    } else {
+      // console.log(user)
+      const viewsData = {
+        pageTitle: 'GitPad - Home',
+      };
+      res.render('add', viewsData);
     }
+  }
 };
 
 
-exports.getLibraryPage = async (req, res) =>{
-    const stories = await Novels.findAll();
-    const viewsData = {
-        stories,
-        pageTitle: 'GitPad - Biblioteka',
-    };
-    res.render('library', viewsData);
+exports.getLibraryPage = async (req, res) => {
+  const stories = await Novels.findAll();
+  const viewsData = {
+    stories,
+    pageTitle: 'GitPad - Biblioteka',
+  };
+  res.render('library', viewsData);
 };
 
-exports.getAboutPage = (req, res) =>{
-    const viewsData = {
-        pageTitle: 'GitPad - About us',
-    };
-    res.render('about', viewsData);
+exports.getAboutPage = (req, res) => {
+  const viewsData = {
+    pageTitle: 'GitPad - About us',
+  };
+  res.render('about', viewsData);
 };
 
-exports.getAccountPage = async (req, res) =>{
+exports.getAccountPage = async (req, res) => {
   const user = getUserId();
-    if(user == null){
+  if (user == null) {
+    const viewsData = {
+      pageTitle: 'GitPad - Konto',
+    };
+    res.render('account', viewsData);
+  } else {
+    const user = await Users.findOne({ attributes: ['id'], where: { uid: getUserId() } })
+    if (user == null) {
       const viewsData = {
         pageTitle: 'GitPad - Konto',
       };
       res.render('account', viewsData);
-    } else {
-      const user = await Users.findOne({attributes: ['id'],where:{uid:getUserId()}})
-      if(user == null){
-        const viewsData = {
-          pageTitle: 'GitPad - Konto',
-        };
-        res.render('account', viewsData);
-      }
-      else
-        res.redirect('/account_info');
     }
+    else
+      res.redirect('/account_info');
+  }
 };
 
-exports.getAccountInfoPage = async (req, res) =>{
+exports.getAccountInfoPage = async (req, res) => {
   const user = getUserId()
-    if(user != null){
-      const user = await Users.findOne({where:{uid:getUserId()}});
-      if(user == null){
-        const viewsData = {
-          pageTitle: 'GitPad - Konto',
-        };
-        res.render('account', viewsData);
-      }
-      else{
-        const viewsData = {
-          pageTitle: 'GitPad - Konto',
-          userName: user.nick,
-        };
-        res.render('account_info', viewsData);
-      }
-    } else {
-      res.redirect('/account');
-    }
-};
-
-exports.getLoginPage = (req, res) =>{
-    const viewsData = {
-        pageTitle: 'GitPad - Logowanie',
-    };
-    res.render('login', viewsData);
-};
-
-exports.getRegisterPage = (req, res) =>{
-    const viewsData = {
-        pageTitle: 'GitPad - Rejestracja',
-    };
-    res.render('register', viewsData);
-};
-
-exports.getContactPage = (req, res) =>{
-    const report_id = req.params.novelId
-    
-    let viewsData = {}
-    if (report_id){
-      viewsData = {
-        novelId: report_id,
-        pageTitle: 'GitPad - Kontakt',
+  if (user != null) {
+    const user = await Users.findOne({ where: { uid: getUserId() } });
+    if (user == null) {
+      const viewsData = {
+        pageTitle: 'GitPad - Konto',
       };
-    } else{
-      viewsData = {
-        novelId: null,
-        pageTitle: 'GitPad - Kontakt',
-      };
+      res.render('account', viewsData);
     }
-    res.render('contact', viewsData);
+    else {
+      const viewsData = {
+        pageTitle: 'GitPad- Konto ',
+        userName: user.nick,
+        userFlags: user.red_flags,
+        createdAt: user.createdAt.getDate() + "." + user.createdAt.getMonth() + 1 + "." + user.createdAt.getFullYear() + "r."
+      };
+      res.render('account_info', viewsData);
+    }
+  } else {
+    res.redirect('/account');
+  }
+};
+
+exports.getLoginPage = (req, res) => {
+  const viewsData = {
+    pageTitle: 'GitPad - Logowanie',
+  };
+  res.render('login', viewsData);
+};
+
+exports.getRegisterPage = (req, res) => {
+  const viewsData = {
+    pageTitle: 'GitPad - Rejestracja',
+  };
+  res.render('register', viewsData);
+};
+
+exports.getContactPage = (req, res) => {
+  const report_id = req.params.novelId
+
+  let viewsData = {}
+  if (report_id) {
+    viewsData = {
+      novelId: report_id,
+      pageTitle: 'GitPad - Kontakt',
+    };
+  } else {
+    viewsData = {
+      novelId: null,
+      pageTitle: 'GitPad - Kontakt',
+    };
+  }
+  res.render('contact', viewsData);
 };
 
 exports.postReport = async (req, res) => {
