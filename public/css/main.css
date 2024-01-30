@@ -30,7 +30,7 @@ nav ul {
 nav ul a {
   flex-basis: content;
   padding: 2em;
-  transition-duration: 0.5s;
+  transition-duration: 0.75s;
 }
 nav ul a:hover {
   background-color: #90a955;
@@ -62,6 +62,16 @@ main {
   font-size: large;
 }
 
+.aboutPage .container {
+  width: 90%;
+  margin: auto;
+  padding: 1em;
+}
+.aboutPage .container h1 {
+  text-align: center;
+  color: #ebf4a1;
+}
+
 .addPage div {
   width: 90%;
   margin: auto;
@@ -69,11 +79,42 @@ main {
 
 .contactPage .container {
   width: 90%;
-  margin: 1em auto;
+  margin: auto;
+  padding: 1em auto;
 }
 .contactPage .container h1 {
   text-align: center;
   color: #ebf4a1;
+}
+.contactPage .container form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.contactPage .container form label {
+  flex-basis: 100%;
+  color: #ebf4a1;
+  padding: 1em 0em 0.25em;
+}
+.contactPage .container form input {
+  flex-basis: 100%;
+  background-color: #fff;
+}
+.contactPage .container form textarea {
+  flex-basis: 100%;
+  padding: 0.25em;
+}
+.contactPage .container form .submit {
+  flex-basis: content;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #90a955;
+  margin: 1em;
+  border: none;
+  transition-duration: 0.5s;
+}
+.contactPage .container form .submit:hover {
+  background-color: #ebf4a1;
 }
 
 .libraryPage div {
@@ -144,4 +185,10 @@ main {
 }
 .loginPage div form .submit, .registerPage div form .submit {
   flex-basis: 30%;
+}
+
+.reportedPage h1 {
+  text-align: center;
+  color: #ebf4a1;
+  padding: 1em;
 }
