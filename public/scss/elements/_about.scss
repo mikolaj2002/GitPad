@@ -7,6 +7,29 @@
             text-align: center;
             color: $secondaryTextColor;
         }
+        h2 {
+            color: $secondaryTextColor;
+            margin: 1em 0em;
+        }
+        .history {
+            border-radius: 1em;
+            padding: 1em;
+            background-color: $backgroundColor3;
+        }
+        .team {
+            display: flex;
+            justify-content: space-between;
+            .member {
+                border-radius: 1em;
+                padding: 1em;
+                background-color: $backgroundColor3;
+                flex-basis: 18%;
+                h3 {
+                    margin-bottom: 0.5em;
+                    text-align: center;
+                }
+            }
+        }
     }
     
 }
