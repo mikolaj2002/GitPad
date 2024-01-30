@@ -4,10 +4,14 @@
     <body>
         <%- include('includes/navigation.ejs') %>
             <main class="accountInfoPage">
+                <h1>Witaj <b>
+                        <%= userName %>
+                    </b>!</h1>
+
                 <div class="container">
-                    <h1>Konto</h1>
                     <h3 id="error" style="color: rgb(238, 81, 81);text-align: center;font-size:medium;"></h3>
-                    <p>Zalogowano jako: <b>
+                    <h2>Twoje informacje</h2>
+                    <p>Nazwa użytkownika: <b>
                             <%= userName %>
                         </b></p>
                     <p>Liczba skarg: <b>
@@ -16,6 +20,7 @@
                     <p>Data dołączenia: <b>
                             <%= createdAt %>
                         </b></p>
+                    <h2>Działania</h2>
                     <a href="/sign_out">Wyloguj się</a>
                 </div>
             </main>
