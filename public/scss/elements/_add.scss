@@ -1,6 +1,12 @@
 .addPage {
-    div {
+    .container {
         width: 90%;
         margin: auto;
+        h1 {
+            color: $secondaryTextColor;
+            text-align: center;
+            margin: 1em;
+        }
+
     }
 }
