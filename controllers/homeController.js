@@ -88,7 +88,7 @@ exports.getAddPage = async (req, res) => {
     } else {
       // console.log(user)
       const viewsData = {
-        pageTitle: 'GitPad - Home',
+        pageTitle: 'GitPad - Dodaj opowiadanie',
       };
       res.render('add', viewsData);
     }
@@ -107,7 +107,7 @@ exports.getLibraryPage = async (req, res) => {
 
 exports.getAboutPage = (req, res) => {
   const viewsData = {
-    pageTitle: 'GitPad - About us',
+    pageTitle: 'GitPad - O Gitpadzie',
   };
   res.render('about', viewsData);
 };
