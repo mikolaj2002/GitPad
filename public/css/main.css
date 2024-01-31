@@ -329,10 +329,11 @@ main {
   margin: 0.2em;
   flex-basis: 100%;
 }
-.homePage .story form {
+.homePage .story .buttons {
   display: flex;
+  justify-content: right;
 }
-.homePage .story form .btn {
+.homePage .story .buttons .btnAuthor {
   flex-basis: content;
   padding: 1em;
   border-radius: 1em;
@@ -341,10 +342,21 @@ main {
   margin: 0em 1em 1em 1em;
   border: none;
   transition-duration: 0.5s;
-  text-align: center;
-  margin-left: auto;
 }
-.homePage .story form .btn:hover {
+.homePage .story .buttons .btnAuthor:hover {
+  background-color: #4d772d;
+}
+.homePage .story .buttons .btn {
+  flex-basis: content;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #90a955;
+  text-decoration: none;
+  margin: 0em 1em 1em 1em;
+  border: none;
+  transition-duration: 0.5s;
+}
+.homePage .story .buttons .btn:hover {
   background-color: rgb(143, 0, 0);
   color: #90a955;
 }
@@ -520,4 +532,4 @@ main {
   text-align: center;
   color: #ebf4a1;
   padding: 1em;
-}
+}/*# sourceMappingURL=main.css.map */

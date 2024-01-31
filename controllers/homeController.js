@@ -1,6 +1,7 @@
 const { getUserId } = require("./authenticationController");
 const config = require("../config/config.json");
 const { Sequelize } = require('sequelize');
+const { getUserById } = require("./databaseControllers/userController");
 const env = process.env.NODE_ENV || "development";
 const dbConfig = config[env];
 const sequelize = new Sequelize(dbConfig);
@@ -24,7 +25,7 @@ exports.getHomePage = async (req, res) => {
       }
     });
 
-    const rand_id = ids[Math.floor(Math.random() * (storiesOk.length - 1))];
+    const rand_id = Math.floor(Math.random() * (storiesOk.length));
     console.log(rand_id)
 
     const mainStory = storiesOk[rand_id]
@@ -163,6 +164,37 @@ exports.getAccountInfoPage = async (req, res) => {
     }
   } else {
     res.redirect('/account');
+  }
+};
+
+exports.getAccountInfoByIdPage = async (req, res) => {
+  const userId = req.params.userId
+
+  // const users = await Users.getAllUsers();
+  // console.log(users)
+
+  const user = await Users.findOne({ where: { id: userId } });
+  if (user == null) {
+    const viewsData = {
+      pageTitle: 'GitPad - użytkownik',
+    };
+    res.render('account', viewsData);
+  }
+  else {
+    const stories = await Novels.findAll({
+      where: {
+        userId: userId
+      }
+    });
+
+    const viewsData = {
+      stories,
+      pageTitle: 'GitPad - Konto',
+      userName: user.nick,
+      userFlags: user.red_flags,
+      createdAt: user.createdAt.getDate() + "." + user.createdAt.getMonth() + 1 + "." + user.createdAt.getFullYear() + "r."
+    };
+    res.render('account_info_by_id', viewsData);
   }
 };
 

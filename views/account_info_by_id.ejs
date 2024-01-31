@@ -1,0 +1,34 @@
+<%- include('includes/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('includes/navigation.ejs') %>
+            <main class="accountInfoPage">
+                <h1>Poznaj pozostałe prace, których autorem jest <%= userName %>!</h1>
+
+                <div class="children">
+                    <div class="content">
+                        <% if (stories[0]) { %>
+                            <% for(let story of stories) { %>
+                                <% if (story.text !="" ) { %>
+                                    <a class="singleStory" href="/novel/<%= story.id %>">
+                                        <h2>
+                                            <%= story.title %>
+                                        </h2>
+                                        <p>
+                                            <%= story.text.substring(0, 50)+"..." %>
+                                        </p>
+                                    </a>
+                                    <% } %>
+                                        <% } %>
+                                            <% } %>
+                    </div>
+                </div>
+            </main>
+
+            <script>
+                const urlParams = new URLSearchParams(window.location.search);
+                const errorMessage = urlParams.get('error');
+                document.getElementById("error").innerHTML = errorMessage;
+            </script>
+            <%- include('includes/footer.ejs') %>

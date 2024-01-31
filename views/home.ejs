@@ -16,10 +16,10 @@
                             <div class="text">
                                 <pre><%= mainStory.text %></pre>
                             </div>
-                            <form action=" /contact/<%=mainStory.id %>" method="get">
-                                <input type="hidden" name="storyId" value="<%= mainStory.id %>">
-                                <button class="btn">Zgłoś</button>
-                            </form>
+                            <div class="buttons">
+                                <a class="btnAuthor" href="/account_user/<%=mainStory.userId%>">Poznaj autora</a>
+                                <a class="btn" href="/contact/<%=mainStory.id %>?storyId=<%= mainStory.id%>">Zgłoś</a>
+                            </div>
                         </div>
                         <% } %>
 

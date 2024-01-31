@@ -4,16 +4,14 @@
     <body>
         <%- include('includes/navigation.ejs') %>
             <main class="accountInfoPage">
-                <h1>Witaj <b>
-                        <%= userName %>
-                    </b>!</h1>
+                <h1>Witaj <%= userName %>!</h1>
 
                 <div class="container">
                     <h3 id="error" style="color: rgb(238, 81, 81);text-align: center;font-size:medium;"></h3>
                     <h2>Twoje informacje</h2>
-                    <p>Nazwa użytkownika: <b>
-                            <%= userName %>
-                        </b></p>
+                    <p>Nazwa użytkownika:
+                        <%= userName %>
+                    </p>
                     <p>Liczba skarg: <b>
                             <%= userFlags %>
                         </b></p>
