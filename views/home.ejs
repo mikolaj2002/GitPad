@@ -1,59 +1,84 @@
 <%- include('includes/head.ejs') %>
-</head>
-<body class="d-flex flex-column min-vh-100">
-<%- include('includes/navigation.ejs') %>
-<main>
-    <div class="container">
-        <h1 class="text-center my-5">Strona główna</h1>
-        <% if (mainStory){ %>
-            <div class="Row">
-                <div class="Column"> 
-                    <div class="min-story-header"><h1>Następne części:</h1></div>
-                    <% if (stories[0]) { %>
-                        <% for(let story of stories) { %>
-                            <div class="min-story">
-                                <div><%= story.title %></div>
-                                <div><%= story.text.substring(0, 50)+"..." %></div>
-                                <div>
-                                    <form action="/novel/<%= story.id %>" method="get">
-                                        <input type="hidden" name="storyId" value="<%= story.id %>">
-                                        <button class="btn">Czytaj</button>
-                                    </form>
-                                </div>
-                            </div> 
-                            
-                        <% } %>
-                    <% } else { %>
-                        <div>Brak powiązanych części. Dodaj nową ;D </div>
-                        <form action="/add" method="get">
-                            <input type="hidden" name="storyId" value="<%= mainStory.id %>">
-                            <button class="btn">Dodaj</button>
-                        </form>
-                    <% } %>
-                </div>
-                
-                <div class="Column"> 
+    </head>
+
+    <body>
+        <%- include('includes/navigation.ejs') %>
+            <main class="homePage">
+                <h1>
+                    <%= pageHeader %>
+                </h1>
+                <% if (mainStory){ %>
                     <% if (mainStory) { %>
                         <div class="story">
-                            
-                            <div><h1>Tytuł: <%= mainStory.title %></h1></div>
-                            <div><h6>Treść:</h6></div>
-                            <div><%= mainStory.text %></div>
-                            <form action="/contact/<%= mainStory.id %>" method="get">
-                                <input type="hidden" name="storyId" value="<%= mainStory.id %>">
-                                <button class="btn">Zgłoś</button>
-                            </form>
+                            <h1>
+                                <%= mainStory.title %>
+                            </h1>
+                            <div class="text">
+                                <pre><%= mainStory.text %></pre>
+                            </div>
+                            <div class="buttons">
+                                <a class="btnAuthor" href="/account_user/<%=mainStory.userId%>">Poznaj autora</a>
+                                <a class="btn" href="/contact/<%=mainStory.id %>?storyId=<%= mainStory.id%>">Zgłoś</a>
+                            </div>
                         </div>
-                    <% } %>
-                </div>
+                        <% } %>
 
-            </div>  
-        </div>
-        <% } else { %>
-        ERROR: Błąd bazy danych
-        <% } %>
-        
-    </div>
-</main>
-<%- include('includes/footer.ejs') %>
+                            <div class="children">
+                                <% if (stories[0]) { %>
 
+                                    <h1>Kontynuuj czytanie:</h1>
+
+                                    <div class="content">
+
+                                        <% for(let story of stories) { %>
+                                            <!-- <div class="singleStory">
+                                            <div>
+                                                <%= story.title %>
+                                            </div>
+                                            <div>
+                                                <%= story.text.substring(0, 50)+"..." %>
+                                            </div>
+                                            <div> -->
+                                            <a class="singleStory" href="/novel/<%= story.id %>">
+                                                <h2>
+                                                    <%= story.title %>
+                                                </h2>
+                                                <p>
+                                                    <%= story.text.substring(0, 50)+"..." %>
+                                                </p>
+                                            </a>
+                                            <!-- <form action="/novel/<%= story.id %>" method="get">
+                                                    <input type="hidden" name="storyId" value="<%= story.id %>">
+                                                    <button class="btn">Czytaj</button>
+                                                </form> -->
+                                            <% } %>
+
+                                    </div>
+                            </div>
+
+                            <div class="adding">
+                                <h3>Masz pomysł jak może potoczyć się ta historia? Stwórz własną kontynuację!</h3>
+                                <a class="addBttn" href="/add?storyId=<%= mainStory.id %>">Dodaj część</a>
+                            </div>
+
+                            <% } else { %>
+                                <div class="adding">
+                                    <h3>Ta opowieść nie ma jeszcze kontynuacji. Stwórz własną!</h3>
+                                    <a class="addBttn" href="/add?storyId=<%= mainStory.id %>">Dodaj część</a>
+                                </div>
+                                <% } %>
+
+
+
+                                    <% } else { %>
+
+                                        <div class="errDiv">
+
+                                            <h3 class="err">Niestety, ta historia nie istnieje :(</h3>
+                                            <a class="home" href="/">Powrót</a>
+                                        </div>
+                                        <% } %>
+
+                                            </div>
+            </main>
+            <%- include('includes/footer.ejs') %>

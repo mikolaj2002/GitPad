@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {getAccountInfoPage, getHomePage,getAddPage, getLibraryPage, getAboutPage, getAccountPage, getLoginPage, getRegisterPage, getContactPage, getSpecifiedHomePage, postReport, postSend} = require("../controllers/homeController");
+const { getAccountInfoPage, getAccountInfoByIdPage, getHomePage, getAddPage, getLibraryPage, getAboutPage, getAccountPage, getLoginPage, getRegisterPage, getContactPage, getSpecifiedHomePage, postReport, postSend } = require("../controllers/homeController");
 
 router.get('/', getHomePage);
 router.get('/novel/:novelId', getSpecifiedHomePage);
@@ -9,6 +9,7 @@ router.get('/library', getLibraryPage);
 router.get('/about', getAboutPage);
 router.get('/account', getAccountPage);
 router.get('/account_info', getAccountInfoPage);
+router.get('/account_user/:userId', getAccountInfoByIdPage);
 router.get('/login', getLoginPage);
 router.get('/register', getRegisterPage);
 router.get('/contact', getContactPage);

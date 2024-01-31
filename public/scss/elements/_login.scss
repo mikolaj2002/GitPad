@@ -1,0 +1,64 @@
+.loginPage,
+.registerPage {
+    // padding: 10em 0em 5em;
+
+    h1 {
+        text-align: center;
+        margin: 1em;
+        color: $secondaryTextColor;
+    }
+
+    div {
+        width: 30vw;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        background-color: $backgroundColor4;
+        border-radius: 1em;
+        padding: 4em 1em 2em 1em;
+
+        h1 {
+            text-align: center;
+            margin: 0.5em 0em;
+        }
+
+        .errorBox {
+            color: $errorTextColor;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0em 5em;
+            justify-content: center;
+
+            label {
+                flex-basis: 100%;
+            }
+
+            input {
+                flex-basis: 100%;
+                padding: 1em;
+                border-radius: 1em;
+                margin: 0.25em 0em 1em;
+                border-style: solid;
+            }
+
+            .submit {
+                flex-basis: content;
+                padding: 1em;
+                border-radius: 1em;
+                background-color: $backgroundColor3;
+                margin: 1em;
+                border: none;
+                transition-duration: 0.5s;
+
+                &:hover {
+                    background-color: $backgroundColor2;
+                }
+            }
+        }
+
+    }
+}

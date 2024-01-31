@@ -1,30 +1,29 @@
 <%- include('includes/head.ejs') %>
-</head>
+    </head>
 
-<body class="d-flex flex-column min-vh-100">
-    <%- include('includes/navigation.ejs') %>
-    <main>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="text-center my-5">Rejestracja</h1>
+    <body>
+        <%- include('includes/navigation.ejs') %>
+            <main class="registerPage">
+                <h1>Rejestracja</h1>
+                <div>
+                    <p id="error" class="errorBox"></p>
                     <form action="/register_email" method="POST">
-                        <input type="text" name="nick" placeholder="Nick" class="form-control mb-2">
-                        <input type="text" name="email" placeholder="Adres e-mail" class="form-control mb-2">
-                        <input type="password" name="password" placeholder="Hasło" class="form-control mb-2">
-                        <input type="password" name="passwordRepeat" placeholder="Powtórz hasło"
-                            class="form-control mb-2">
-                        <input type="submit" value="Zarejestruj się" class="btn btn-success">
-                        <p id="error" class="text-danger"></p>
+                        <label for="nick">Pseudonim:</label>
+                        <input type="text" name="nick" id="nick">
+                        <label for="email">E-mail:</label>
+                        <input type="text" name="email" placeholder="example@example.com" id="email">
+                        <label for="password">Hasło:</label>
+                        <input type="password" name="password" id="password">
+                        <label for="passwordRepeat">Powtórz hasło:</label>
+                        <input type="password" name="passwordRepeat" id="passwordRepeat">
+                        <input type="submit" value="Zarejestruj się" class="submit">
                     </form>
                 </div>
-            </div>
-        </div>
+            </main>
 
-        <script>
-            const urlParams = new URLSearchParams(window.location.search);
-            const errorMessage = urlParams.get('error');
-            document.getElementById("error").innerHTML = errorMessage;
-        </script>
-    </main>
-<%- include('includes/footer.ejs') %>
+            <script>
+                const urlParams = new URLSearchParams(window.location.search);
+                const errorMessage = urlParams.get('error');
+                document.getElementById("error").innerHTML = errorMessage;
+            </script>
+            <%- include('includes/footer.ejs') %>

@@ -4,6 +4,6 @@
     "dialect": "mysql",
     "storage": "../gitpad.mysql",
     "username": "root",
-    "password": "123456"
+    "password": null
   }
 }

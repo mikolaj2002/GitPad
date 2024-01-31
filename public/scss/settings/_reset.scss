@@ -1,0 +1,15 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    color: $primaryTextColor;
+    font-family: $font;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul a {
+    text-decoration: none;
+}

@@ -1,22 +1,50 @@
 <%- include('includes/head.ejs') %>
-</head>
-<body class="d-flex flex-column min-vh-100">
-<%- include('includes/navigation.ejs') %>
-<main>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="text-center my-5">Konto</h1>
-                <h3 id="error" style="color: rgb(238, 81, 81);text-align: center;font-size:medium;"></h3>
-                <p>Zalogowano jako <b><%= userName %></b></p>
-                <a class="btn btn-danger" href="/sign_out">Wyloguj się</a>
-            </div>
-        </div>
-    </div>
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const errorMessage = urlParams.get('error');
-        document.getElementById("error").innerHTML = errorMessage;
-    </script>
-</main>
-<%- include('includes/footer.ejs') %>
+    </head>
+
+    <body>
+        <%- include('includes/navigation.ejs') %>
+            <main class="accountInfoPage">
+                <h1>Witaj <%= userName %>!</h1>
+
+                <div class="container">
+                    <h3 id="error" style="color: rgb(238, 81, 81);text-align: center;font-size:medium;"></h3>
+                    <h2>Twoje informacje</h2>
+                    <p>Nazwa użytkownika:
+                        <%= userName %>
+                    </p>
+                    <p>Liczba skarg: <b>
+                            <%= userFlags %>
+                        </b></p>
+                    <p>Data dołączenia: <b>
+                            <%= createdAt %>
+                        </b></p>
+                    <h2>Działania</h2>
+                    <a class="logout" href="/sign_out">Wyloguj się</a>
+                </div>
+
+                <h1>Twoje opowieści</h1>
+
+                <div class="children">
+                    <div class="content">
+                        <% if (stories[0]) { %>
+                            <% for(let story of stories) { %>
+                                <a class="singleStory" href="novel/<%= story.id %>">
+                                    <h2>
+                                        <%= story.title %>
+                                    </h2>
+                                    <p>
+                                        <%= story.text.substring(0, 50)+"..." %>
+                                    </p>
+                                </a>
+                                <% } %>
+                                    <% } %>
+                    </div>
+                </div>
+            </main>
+
+            <script>
+                const urlParams = new URLSearchParams(window.location.search);
+                const errorMessage = urlParams.get('error');
+                document.getElementById("error").innerHTML = errorMessage;
+            </script>
+            <%- include('includes/footer.ejs') %>

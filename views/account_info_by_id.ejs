@@ -3,14 +3,15 @@
 
     <body>
         <%- include('includes/navigation.ejs') %>
-            <main class="libraryPage">
-                <div>
-                    <h1>Biblioteka</h1>
+            <main class="accountInfoPage">
+                <h1>Poznaj pozostałe prace, których autorem jest <%= userName %>!</h1>
+
+                <div class="children">
                     <div class="content">
                         <% if (stories[0]) { %>
                             <% for(let story of stories) { %>
-                                <% if (story.novelId==1 && story.text !="" ) { %>
-                                    <a class="singleStory" href="novel/<%= story.id %>">
+                                <% if (story.text !="" ) { %>
+                                    <a class="singleStory" href="/novel/<%= story.id %>">
                                         <h2>
                                             <%= story.title %>
                                         </h2>
@@ -24,4 +25,10 @@
                     </div>
                 </div>
             </main>
+
+            <script>
+                const urlParams = new URLSearchParams(window.location.search);
+                const errorMessage = urlParams.get('error');
+                document.getElementById("error").innerHTML = errorMessage;
+            </script>
             <%- include('includes/footer.ejs') %>

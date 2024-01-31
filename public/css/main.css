@@ -1,54 +1,535 @@
-body{
-    background-color: #c4e2a9;
-}
-.container{
-    color: black;
-}
-.navbar{
-    background-color: #8f78a8;
-    color: black;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  color: #000;
+  font-family: sans-serif;
 }
 
-footer{
-    color: black;
-    background-color: #8f78a8;
+nav ul {
+  list-style: none;
 }
 
-.min-story{
-    width: 30vw;
-    height: 11vh;
-    padding: 10px;
-    border: #132613 1px solid;
-    margin-bottom: 10px;
+nav ul a {
+  text-decoration: none;
 }
 
-.min-story-heade{
-    width: 10px;
-    height: 10vh;
-    padding: 20px;
+nav {
+  background-color: #4d772d;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  font-weight: bold;
+  color: #4d772d;
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 100%;
+}
+nav ul a {
+  flex-basis: content;
+  padding: 2em;
+  transition-duration: 0.75s;
+}
+nav ul a:hover {
+  background-color: #90a955;
 }
 
-.Row {
-    display: table;
-    width: 100%; /*Optional*/
-    height: auto;
-    table-layout: fixed; /*Optional*/
-    border-spacing: 10px; /*Optional*/
-    margin-bottom: 20px;
+footer {
+  background-color: #4d772d;
+  color: #000;
 }
-.Column {
-    display: table-cell;
-    background-color: #c58474;
-    padding: 10px;
-    height: 60vh;
-    margin: 20px;
+footer div {
+  padding: 1em;
+}
+footer div p {
+  text-align: center;
 }
 
-.story{
-    width: 30vw;
-    height: auto;
-    border: green 1px, solid;
-    font-size: large;
-    margin-left: 10px;
-
+main {
+  min-height: 100vh;
+  background-color: #112b12;
+  padding: 5.5em 0em 3em;
 }
+
+.errorPage h1 {
+  text-align: center;
+  margin: 2em;
+}
+.errorPage p {
+  text-align: center;
+  font-size: large;
+}
+
+.aboutPage .container {
+  width: 90%;
+  margin: auto;
+  padding: 1em;
+}
+.aboutPage .container h1 {
+  text-align: center;
+  color: #ebf4a1;
+}
+.aboutPage .container h2 {
+  color: #ebf4a1;
+  margin: 1em 0em;
+}
+.aboutPage .container .history {
+  border-radius: 1em;
+  padding: 1em;
+  background-color: #90a955;
+}
+.aboutPage .container .team {
+  display: flex;
+  justify-content: space-between;
+}
+.aboutPage .container .team .member {
+  border-radius: 1em;
+  padding: 1em;
+  background-color: #90a955;
+  flex-basis: 18%;
+}
+.aboutPage .container .team .member h3 {
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.accountInfoPage h1 {
+  text-align: center;
+  margin: 1em;
+  color: #ebf4a1;
+}
+.accountInfoPage h1 b {
+  color: #ebf4a1;
+}
+.accountInfoPage .container {
+  width: 30vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #ebf4a1;
+  border-radius: 1em;
+  padding: 0.5em 1em;
+}
+.accountInfoPage .container h2 {
+  text-align: center;
+  margin: 2em 0em 1em 0em;
+}
+.accountInfoPage .container p {
+  text-align: center;
+  margin: 0.2em;
+  flex-basis: 100%;
+}
+.accountInfoPage .container .logout {
+  flex-basis: content;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #90a955;
+  text-decoration: none;
+  margin: 0em 1em 1em 1em;
+  border: none;
+  transition-duration: 0.5s;
+  text-align: center;
+}
+.accountInfoPage .container .logout:hover {
+  background-color: #4d772d;
+}
+.accountInfoPage .children {
+  width: 90%;
+  margin: auto;
+}
+.accountInfoPage .children .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.accountInfoPage .children .content .singleStory {
+  text-decoration: none;
+  background-color: #90a955;
+  flex-basis: 24%;
+  border-radius: 1em;
+  padding: 1em;
+  margin: 1em 1em;
+}
+.accountInfoPage .children .content .singleStory:hover {
+  background-color: #ebf4a1;
+}
+.accountInfoPage .children .content .singleStory h2 {
+  font-size: 1.2em;
+  margin: 0.5em 0em;
+}
+
+.accountPage h1 {
+  text-align: center;
+  margin: 1em;
+  color: #ebf4a1;
+}
+.accountPage .container {
+  width: 30vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #ebf4a1;
+  border-radius: 1em;
+  padding: 1.5em 1em;
+}
+.accountPage .container h2 {
+  text-align: center;
+  margin: 2em 0em 1em 0em;
+}
+.accountPage .container p {
+  text-align: center;
+  margin: 0.2em;
+  flex-basis: 100%;
+}
+.accountPage .container a {
+  flex-basis: content;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #90a955;
+  text-decoration: none;
+  margin: 0.5em 1em;
+  border: none;
+  transition-duration: 0.5s;
+  text-align: center;
+}
+.accountPage .container a:hover {
+  background-color: #4d772d;
+}
+
+.addPage .container {
+  width: 80%;
+  margin: auto;
+}
+.addPage .container h1 {
+  color: #ebf4a1;
+  text-align: center;
+  margin: 1em;
+}
+.addPage .container .form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.addPage .container .form label {
+  flex-basis: 100%;
+  color: #ebf4a1;
+  padding: 1em 0em 0.25em;
+  font-size: 18px;
+}
+.addPage .container .form input {
+  flex-basis: 100%;
+  padding: 0.5em;
+  font-size: 16px;
+  border-radius: 0.5em;
+  border: none;
+}
+.addPage .container .form textarea {
+  flex-basis: 100%;
+  padding: 0.5em;
+  font-size: 16px;
+  border-radius: 0.5em;
+  border: none;
+}
+.addPage .container .form .submit {
+  flex-basis: content;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #90a955;
+  margin: 1em;
+  border: none;
+  transition-duration: 0.5s;
+}
+.addPage .container .form .submit:hover {
+  background-color: #ebf4a1;
+}
+
+.contactPage .container {
+  width: 80%;
+  margin: auto;
+}
+.contactPage .container h1 {
+  text-align: center;
+  color: #ebf4a1;
+  margin: 1em;
+}
+.contactPage .container form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.contactPage .container form label {
+  flex-basis: 100%;
+  color: #ebf4a1;
+  padding: 1em 0em 0.25em;
+  font-size: 18px;
+}
+.contactPage .container form input {
+  flex-basis: 100%;
+  background-color: #fff;
+  padding: 0.5em;
+  font-size: 16px;
+  border-radius: 0.5em;
+  border: none;
+}
+.contactPage .container form textarea {
+  flex-basis: 100%;
+  padding: 0.5em;
+  font-size: 16px;
+  border-radius: 0.5em;
+  border: none;
+}
+.contactPage .container form .submit {
+  flex-basis: content;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #90a955;
+  margin: 1em;
+  border: none;
+  transition-duration: 0.5s;
+}
+.contactPage .container form .submit:hover {
+  background-color: #ebf4a1;
+}
+
+.homePage h1 {
+  text-align: center;
+  margin: 1em;
+  color: #ebf4a1;
+}
+.homePage h1 b {
+  color: #ebf4a1;
+}
+.homePage .story {
+  width: 50vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #ebf4a1;
+  border-radius: 1em;
+  padding: 0.5em 1em;
+}
+.homePage .story h1 {
+  text-align: center;
+  color: #112b12;
+}
+.homePage .story .text {
+  font-size: large;
+  padding: 1em;
+}
+.homePage .story .text pre {
+  white-space: pre-wrap;
+  word-break: keep-all;
+}
+.homePage .story p {
+  text-align: center;
+  margin: 0.2em;
+  flex-basis: 100%;
+}
+.homePage .story .buttons {
+  display: flex;
+  justify-content: right;
+}
+.homePage .story .buttons .btnAuthor {
+  flex-basis: content;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #90a955;
+  text-decoration: none;
+  margin: 0em 1em 1em 1em;
+  border: none;
+  transition-duration: 0.5s;
+}
+.homePage .story .buttons .btnAuthor:hover {
+  background-color: #4d772d;
+}
+.homePage .story .buttons .btn {
+  flex-basis: content;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #90a955;
+  text-decoration: none;
+  margin: 0em 1em 1em 1em;
+  border: none;
+  transition-duration: 0.5s;
+}
+.homePage .story .buttons .btn:hover {
+  background-color: rgb(143, 0, 0);
+  color: #90a955;
+}
+.homePage .children {
+  width: 90%;
+  margin: auto;
+}
+.homePage .children .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.homePage .children .content .singleStory {
+  text-decoration: none;
+  background-color: #90a955;
+  flex-basis: 24%;
+  border-radius: 1em;
+  padding: 1em;
+  margin: 1em 1em;
+}
+.homePage .children .content .singleStory:hover {
+  background-color: #ebf4a1;
+}
+.homePage .children .content .singleStory h2 {
+  font-size: 1.2em;
+  margin: 0.5em 0em;
+}
+.homePage .adding {
+  margin: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.homePage .adding h3 {
+  text-align: center;
+  margin: 1em;
+  color: #ebf4a1;
+  font-weight: lighter;
+  margin: 1em;
+}
+.homePage .adding .addBttn {
+  flex-basis: content;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #90a955;
+  text-decoration: none;
+  margin: 1em auto;
+  border: none;
+  transition-duration: 0.5s;
+  text-align: center;
+}
+.homePage .adding .addBttn:hover {
+  background-color: #4d772d;
+}
+.homePage .errDiv {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  flex-direction: column;
+}
+.homePage .errDiv .err {
+  text-align: center;
+  margin: 1em;
+  color: #ebf4a1;
+  font-weight: lighter;
+  margin: 1em;
+}
+.homePage .errDiv .home {
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #90a955;
+  text-decoration: none;
+  margin: 1em auto;
+  border: none;
+  transition-duration: 0.5s;
+  text-align: center;
+}
+.homePage .errDiv .home:hover {
+  background-color: #4d772d;
+}
+
+.libraryPage div {
+  width: 90%;
+  margin: auto;
+}
+.libraryPage div h1 {
+  text-align: center;
+  margin: 1em;
+  color: #ebf4a1;
+}
+.libraryPage div .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.libraryPage div .content .singleStory {
+  text-decoration: none;
+  background-color: #90a955;
+  flex-basis: 24%;
+  border-radius: 1em;
+  padding: 1em;
+  margin: 1em 0em;
+}
+.libraryPage div .content .singleStory:hover {
+  background-color: #ebf4a1;
+}
+.libraryPage div .content .singleStory h2 {
+  font-size: 1.2em;
+  margin: 0.5em 0em;
+}
+
+.loginPage h1,
+.registerPage h1 {
+  text-align: center;
+  margin: 1em;
+  color: #ebf4a1;
+}
+.loginPage div,
+.registerPage div {
+  width: 30vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #ebf4a1;
+  border-radius: 1em;
+  padding: 4em 1em 2em 1em;
+}
+.loginPage div h1,
+.registerPage div h1 {
+  text-align: center;
+  margin: 0.5em 0em;
+}
+.loginPage div .errorBox,
+.registerPage div .errorBox {
+  color: #f00;
+  text-align: center;
+}
+.loginPage div form,
+.registerPage div form {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0em 5em;
+  justify-content: center;
+}
+.loginPage div form label,
+.registerPage div form label {
+  flex-basis: 100%;
+}
+.loginPage div form input,
+.registerPage div form input {
+  flex-basis: 100%;
+  padding: 1em;
+  border-radius: 1em;
+  margin: 0.25em 0em 1em;
+  border-style: solid;
+}
+.loginPage div form .submit,
+.registerPage div form .submit {
+  flex-basis: content;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #90a955;
+  margin: 1em;
+  border: none;
+  transition-duration: 0.5s;
+}
+.loginPage div form .submit:hover,
+.registerPage div form .submit:hover {
+  background-color: #4d772d;
+}
+
+.reportedPage h1 {
+  text-align: center;
+  color: #ebf4a1;
+  padding: 1em;
+}/*# sourceMappingURL=main.css.map */
