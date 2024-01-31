@@ -250,6 +250,8 @@ main {
 .contactPage .container {
   width: 80%;
   margin: auto;
+  display: flex;
+  flex-direction: column;
 }
 .contactPage .container h1 {
   text-align: center;
@@ -300,6 +302,46 @@ main {
 }
 .contactPage .container form .submit:hover {
   background-color: #ebf4a1;
+}
+.contactPage .container .home {
+  margin: auto;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #90a955;
+  text-decoration: none;
+  margin: auto;
+  border: none;
+  transition-duration: 0.5s;
+  text-align: center;
+}
+.contactPage .container .home:hover {
+  background-color: #ebf4a1;
+}
+.contactPage .errDiv {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  flex-direction: column;
+}
+.contactPage .errDiv .err {
+  text-align: center;
+  margin: 1em;
+  color: #ebf4a1;
+  font-weight: lighter;
+  margin: 1em;
+}
+.contactPage .errDiv .home {
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #90a955;
+  text-decoration: none;
+  margin: 1em auto;
+  border: none;
+  transition-duration: 0.5s;
+  text-align: center;
+}
+.contactPage .errDiv .home:hover {
+  background-color: #4d772d;
 }
 
 .homePage h1 {
