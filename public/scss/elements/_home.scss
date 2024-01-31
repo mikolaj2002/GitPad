@@ -42,36 +42,63 @@
 
         .buttons {
             display: flex;
-            justify-content: right;
+            justify-content: space-between;
+            margin-top: 1.5em;
 
-            .btnAuthor {
-                flex-basis: content;
-                padding: 1em;
-                border-radius: 1em;
-                background-color: $backgroundColor3;
-                text-decoration: none;
-                margin: 0em 1em 1em 1em;
-                border: none;
-                transition-duration: 0.5s;
+            .buttonsL {
+                display: flex;
+                justify-content: left;
 
-                &:hover {
-                    background-color: $backgroundColor2;
+                .btnBack {
+                    flex-basis: content;
+                    padding: 1em;
+                    border-radius: 1em;
+                    background-color: $backgroundColor3;
+                    text-decoration: none;
+                    margin: 0em 1em 1em 1em;
+                    border: none;
+                    transition-duration: 0.5s;
+
+                    &:hover {
+                        background-color: $backgroundColor2;
+                    }
                 }
             }
 
-            .btn {
-                flex-basis: content;
-                padding: 1em;
-                border-radius: 1em;
-                background-color: $backgroundColor3;
-                text-decoration: none;
-                margin: 0em 1em 1em 1em;
-                border: none;
-                transition-duration: 0.5s;
+            .buttonsR {
+                display: flex;
+                justify-content: right;
+                margin-left: auto;
 
-                &:hover {
-                    background-color: $backgroundColorErr;
-                    color: $backgroundColor3;
+                .btnAuthor {
+                    flex-basis: content;
+                    padding: 1em;
+                    border-radius: 1em;
+                    background-color: $backgroundColor3;
+                    text-decoration: none;
+                    margin: 0em 1em 1em 1em;
+                    border: none;
+                    transition-duration: 0.5s;
+
+                    &:hover {
+                        background-color: $backgroundColor2;
+                    }
+                }
+
+                .btn {
+                    flex-basis: content;
+                    padding: 1em;
+                    border-radius: 1em;
+                    background-color: $backgroundColor3;
+                    text-decoration: none;
+                    margin: 0em 1em 1em 1em;
+                    border: none;
+                    transition-duration: 0.5s;
+
+                    &:hover {
+                        background-color: $backgroundColorErr;
+                        color: $backgroundColor3;
+                    }
                 }
             }
         }

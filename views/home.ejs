@@ -17,8 +17,18 @@
                                 <pre><%= mainStory.text %></pre>
                             </div>
                             <div class="buttons">
-                                <a class="btnAuthor" href="/account_user/<%=mainStory.userId%>">Poznaj autora</a>
-                                <a class="btn" href="/contact/<%=mainStory.id %>?storyId=<%= mainStory.id%>">Zgłoś</a>
+                                <% if (mainStory.novelId !=1) { %>
+                                    <div class="buttonsL">
+                                        <a class="btnBack" href="/novel/<%= mainStory.novelId %>">Poprzednia część</a>
+                                    </div>
+                                    <% } %>
+                                        <div class="buttonsR">
+
+                                            <a class="btnAuthor" href="/account_user/<%=mainStory.userId%>">Poznaj
+                                                autora</a>
+                                            <a class="btn"
+                                                href="/contact/<%=mainStory.id %>?storyId=<%= mainStory.id%>">Zgłoś</a>
+                                        </div>
                             </div>
                         </div>
                         <% } %>

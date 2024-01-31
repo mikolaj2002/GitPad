@@ -331,9 +331,14 @@ main {
 }
 .homePage .story .buttons {
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
+  margin-top: 1.5em;
 }
-.homePage .story .buttons .btnAuthor {
+.homePage .story .buttons .buttonsL {
+  display: flex;
+  justify-content: left;
+}
+.homePage .story .buttons .buttonsL .btnBack {
   flex-basis: content;
   padding: 1em;
   border-radius: 1em;
@@ -343,10 +348,15 @@ main {
   border: none;
   transition-duration: 0.5s;
 }
-.homePage .story .buttons .btnAuthor:hover {
+.homePage .story .buttons .buttonsL .btnBack:hover {
   background-color: #4d772d;
 }
-.homePage .story .buttons .btn {
+.homePage .story .buttons .buttonsR {
+  display: flex;
+  justify-content: right;
+  margin-left: auto;
+}
+.homePage .story .buttons .buttonsR .btnAuthor {
   flex-basis: content;
   padding: 1em;
   border-radius: 1em;
@@ -356,7 +366,20 @@ main {
   border: none;
   transition-duration: 0.5s;
 }
-.homePage .story .buttons .btn:hover {
+.homePage .story .buttons .buttonsR .btnAuthor:hover {
+  background-color: #4d772d;
+}
+.homePage .story .buttons .buttonsR .btn {
+  flex-basis: content;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #90a955;
+  text-decoration: none;
+  margin: 0em 1em 1em 1em;
+  border: none;
+  transition-duration: 0.5s;
+}
+.homePage .story .buttons .buttonsR .btn:hover {
   background-color: rgb(143, 0, 0);
   color: #90a955;
 }
