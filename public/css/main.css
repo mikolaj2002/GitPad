@@ -37,6 +37,17 @@ nav ul a {
 nav ul a:hover {
   background-color: #90a955;
 }
+nav button {
+  flex-basis: content;
+  padding: 0.5em;
+  transition-duration: 0.75s;
+  font-weight: bold;
+  background-color: #4d772d;
+  border: none;
+}
+nav button:hover {
+  background-color: #90a955;
+}
 
 footer {
   background-color: #4d772d;
@@ -604,4 +615,4 @@ main {
   text-align: center;
   color: #ebf4a1;
   padding: 1em;
-}
+}/*# sourceMappingURL=main.css.map */

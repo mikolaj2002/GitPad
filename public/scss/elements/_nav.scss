@@ -22,5 +22,20 @@ nav {
                 background-color: $backgroundColor3;
             }
         }
+
+
+    }
+
+    button {
+        flex-basis: content;
+        padding: 0.5em;
+        transition-duration: 0.75s;
+        font-weight: bold;
+        background-color: $backgroundColor2;
+        border: none;
+
+        &:hover {
+            background-color: $backgroundColor3;
+        }
     }
 }
