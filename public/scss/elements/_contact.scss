@@ -1,12 +1,13 @@
 .contactPage {
     .container {
-        width: 90%;
+        width: 80%;
         margin: auto;
-        padding: 1em auto;
         h1 {
             text-align: center;
             color: $secondaryTextColor;
+            margin: 1em;
         }
+
         form {
             display: flex;
             justify-content: center;
@@ -15,14 +16,22 @@
                 flex-basis: 100%;
                 color: $secondaryTextColor;
                 padding: 1em 0em 0.25em;
+                font-size: 18px;
             }
             input {
                 flex-basis: 100%;
                 background-color: #fff;
+                padding: 0.5em;
+                font-size: 16px;
+                border-radius: 0.5em;
+                border: none;
             }
             textarea {
                 flex-basis: 100%;
-                padding: 0.25em;
+                padding: 0.5em;
+                font-size: 16px;
+                border-radius: 0.5em;
+                border: none;
             }
             .submit {
                 flex-basis: content;
@@ -38,5 +47,4 @@
             }
         }
     }
-
 }

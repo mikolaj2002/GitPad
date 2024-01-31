@@ -248,13 +248,13 @@ main {
 }
 
 .contactPage .container {
-  width: 90%;
+  width: 80%;
   margin: auto;
-  padding: 1em auto;
 }
 .contactPage .container h1 {
   text-align: center;
   color: #ebf4a1;
+  margin: 1em;
 }
 .contactPage .container form {
   display: flex;
@@ -265,14 +265,22 @@ main {
   flex-basis: 100%;
   color: #ebf4a1;
   padding: 1em 0em 0.25em;
+  font-size: 18px;
 }
 .contactPage .container form input {
   flex-basis: 100%;
   background-color: #fff;
+  padding: 0.5em;
+  font-size: 16px;
+  border-radius: 0.5em;
+  border: none;
 }
 .contactPage .container form textarea {
   flex-basis: 100%;
-  padding: 0.25em;
+  padding: 0.5em;
+  font-size: 16px;
+  border-radius: 0.5em;
+  border: none;
 }
 .contactPage .container form .submit {
   flex-basis: content;
@@ -512,4 +520,4 @@ main {
   text-align: center;
   color: #ebf4a1;
   padding: 1em;
-}/*# sourceMappingURL=main.css.map */
+}
