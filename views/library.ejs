@@ -1,22 +1,27 @@
 <%- include('includes/head.ejs') %>
-</head>
-<body>
-    <%- include('includes/navigation.ejs') %>
-    <main class="libraryPage">
-        <div>  
-            <h1>Biblioteka</h1>
-            <div class="content">
-                <% if (stories[0]) { %>
-                    <% for(let story of stories) { %>
-                        <% if (story.text != "") { %>
-                        <a class="singleStory" href="novel/<%= story.id %>">
-                            <h2><%= story.title %></h2>
-                            <p><%= story.text.substring(0, 50)+"..." %></p>
-                        </a> 
-                        <% } %>
-                    <% } %>
-                <% } %>
-            </div>
-        </div>
-    </main>
-    <%- include('includes/footer.ejs') %>
+    </head>
+
+    <body>
+        <%- include('includes/navigation.ejs') %>
+            <main class="libraryPage">
+                <div>
+                    <h1>Biblioteka</h1>
+                    <div class="content">
+                        <% if (stories[0]) { %>
+                            <% for(let story of stories) { %>
+                                <% if (story.novelId==1 && story.text !="" ) { %>
+                                    <a class="singleStory" href="novel/<%= story.id %>">
+                                        <h2>
+                                            <%= story.title %>
+                                        </h2>
+                                        <p>
+                                            <%= story.text.substring(0, 50)+"..." %>
+                                        </p>
+                                    </a>
+                                    <% } %>
+                                        <% } %>
+                                            <% } %>
+                    </div>
+                </div>
+            </main>
+            <%- include('includes/footer.ejs') %>

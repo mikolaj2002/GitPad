@@ -17,18 +17,21 @@ exports.getHomePage = async (req, res) => {
     for (let story of all_stories) {
       ids.push(story.id);
     }
-    const rand_id = ids[Math.floor(Math.random() * ids.length)];
 
-
-    const stories = await Novels.findAll({
+    const storiesOk = await Novels.findAll({
       where: {
-        novelId: rand_id
+        novelId: 1
       }
     });
 
-    const mainStory = await Novels.findOne({
+    const rand_id = ids[Math.floor(Math.random() * (storiesOk.length - 1))];
+    console.log(rand_id)
+
+    const mainStory = storiesOk[rand_id]
+
+    const stories = await Novels.findAll({
       where: {
-        id: rand_id
+        novelId: mainStory.id
       }
     });
 
@@ -143,7 +146,14 @@ exports.getAccountInfoPage = async (req, res) => {
       res.render('account', viewsData);
     }
     else {
+      const stories = await Novels.findAll({
+        where: {
+          userId: user.id
+        }
+      });
+
       const viewsData = {
+        stories,
         pageTitle: 'GitPad- Konto ',
         userName: user.nick,
         userFlags: user.red_flags,

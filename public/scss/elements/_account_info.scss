@@ -46,4 +46,34 @@
         }
 
     }
+
+    .children {
+        width: 90%;
+        margin: auto;
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            // align-content: center;
+
+            .singleStory {
+                text-decoration: none;
+                background-color: $backgroundColor3;
+                flex-basis: 24%;
+                border-radius: 1em;
+                padding: 1em;
+                margin: 1em 1em;
+
+                &:hover {
+                    background-color: $backgroundColor4;
+                }
+
+                h2 {
+                    font-size: 1.2em;
+                    margin: 0.5em 0em;
+                }
+            }
+        }
+    }
 }

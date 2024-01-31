@@ -23,6 +23,25 @@
                     <h2>Działania</h2>
                     <a class="logout" href="/sign_out">Wyloguj się</a>
                 </div>
+
+                <h1>Twoje opowieści</h1>
+
+                <div class="children">
+                    <div class="content">
+                        <% if (stories[0]) { %>
+                            <% for(let story of stories) { %>
+                                <a class="singleStory" href="novel/<%= story.id %>">
+                                    <h2>
+                                        <%= story.title %>
+                                    </h2>
+                                    <p>
+                                        <%= story.text.substring(0, 50)+"..." %>
+                                    </p>
+                                </a>
+                                <% } %>
+                                    <% } %>
+                    </div>
+                </div>
             </main>
 
             <script>

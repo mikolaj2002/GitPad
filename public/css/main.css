@@ -137,6 +137,30 @@ main {
 .accountInfoPage .container .logout:hover {
   background-color: #4d772d;
 }
+.accountInfoPage .children {
+  width: 90%;
+  margin: auto;
+}
+.accountInfoPage .children .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.accountInfoPage .children .content .singleStory {
+  text-decoration: none;
+  background-color: #90a955;
+  flex-basis: 24%;
+  border-radius: 1em;
+  padding: 1em;
+  margin: 1em 1em;
+}
+.accountInfoPage .children .content .singleStory:hover {
+  background-color: #ebf4a1;
+}
+.accountInfoPage .children .content .singleStory h2 {
+  font-size: 1.2em;
+  margin: 0.5em 0em;
+}
 
 .accountPage h1 {
   text-align: center;
