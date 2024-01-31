@@ -16,33 +16,25 @@
                         </form>
                         <a class="home" href="/">Anuluj</a>
 
-
                         <% } else { %>
                             <div class="errDiv">
-
                                 <h3 class="err">Niestety, ta strona nie istnieje :(</h3>
                                 <a class="home" href="/">Powrót</a>
                             </div>
                             <!-- <h1>Formularz kontaktowy</h1>
-            <form method="post" action="/send/<%= novelId %>">
-                <p>
-                    <label for="">Temat</label>
-                    <select name="topic" id="" class="form-control">
-                        <option value="">Wybierz temat</option>
-                        <option value="2" label="Wspólpraca"></option>
-                        <option value="2" label="Zgłoszenie błędu"></option>
-                        <option value="4" label="Inny"></option>
-                    </select>
-                </p>
-                <p>
-                    <label for="message">Wiadomość</label>
-                    <textarea name="message" id="message" class="form-control"></textarea>
-                </p>
-
-                <p>
-                    <button class="btn btn-primary">Wyślij wiadmość</button>
-                </p>
-            </form> -->
+                                <form method="post" action="/send/<%= novelId %>">
+                                    <label for="topic">Temat: </label>
+                                    <select name="topic" id="topic" required>
+                                        <option value="">Wybierz temat</option>
+                                        <option value="2">Współpraca</option>
+                                        <option value="3">Zgłaszanie błędu</option>
+                                        <option value="4">Inne</option>
+                                    </select>
+                                    
+                                    <label for="message">Treść wiadomości:</label>
+                                    <textarea name="message" id="message" cols="30" rows="10" required></textarea>
+                                    <input type="submit" value="Wyślij wiadomość" class="submit">
+                                </form> -->
                             <% } %>
                 </div>
             </main>
