@@ -275,6 +275,13 @@ main {
   border-radius: 0.5em;
   border: none;
 }
+.contactPage .container form select {
+  flex-basis: 100%;
+  padding: 0.5em;
+  font-size: 16px;
+  border-radius: 0.5em;
+  border: none;
+}
 .contactPage .container form textarea {
   flex-basis: 100%;
   padding: 0.5em;
@@ -555,4 +562,4 @@ main {
   text-align: center;
   color: #ebf4a1;
   padding: 1em;
-}/*# sourceMappingURL=main.css.map */
+}
