@@ -7,6 +7,19 @@
             <a href="/about">O Gitpadzie</a>
             <a href="/account">Moje konto</a>
         </ul>
-        <button>Zmień kolor</button>
+        <button id="colorChangeBtn">Zmień kolor</button>
     </nav>
+
+    <script>
+        document.getElementById('colorChangeBtn').onclick = () => {
+            let currentTheme = localStorage.getItem('theme');
+            if (currentTheme === null || currentTheme == 'dark') {
+                localStorage.setItem('theme', 'bright');
+            }
+            else {
+                localStorage.setItem('theme', 'dark');
+            }
+            location.reload()
+        }
+    </script>
 </header>
